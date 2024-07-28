@@ -1,0 +1,84 @@
+#medium-to-large-device-sign-up {
+    display: none;
+}
+/* Hide sign-up for small devices by default */
+#small-device-sign-up {
+    display: none;
+}
+/* Media query for medium and large devices */
+@media (min-width: 768px) {
+    #small-device-sign-up {
+        display: none;
+    }
+    #medium-to-large-device-sign-up {
+        display: flex;
+    }
+}
+/* Media query for small devices */
+@media (max-width: 767px) {
+    #medium-to-large-device-sign-up {
+        display: none;
+    }
+    #small-device-sign-up {
+        display: flex;
+    }
+}
+
+
+.sign-up-body{
+    .form-group{
+            min-width: 300px;  
+    }
+    .carousel-item {
+        text-align: center;
+        padding: 20px;
+      }
+      .carousel-control-prev, .carousel-control-next {
+        filter: invert(100%);
+      }
+    .carousel-control-prev, .carousel-control-next {
+        filter: invert(100%);
+    }
+    .container-fluid {
+        display: flex;
+        height: 100vh;
+    }
+    .carousel-controls {
+        position: absolute;
+        bottom: 30px;
+        right: -25%;
+        z-index: 1000;
+    }
+    .carousel-controls button {
+        background-color: $colour-white;
+        color: $colour-black;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        font-size: .8em;
+        font-weight: 500;
+    }
+    .carousel-controls button:hover {
+        background-color: #5a32a1;
+    }
+    .container-fluid {
+        display: flex;
+        height: 100vh;
+    }
+    .left-panel, .right-panel {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .left-panel {
+        text-align: center;
+    }
+    .right-panel {
+        background: linear-gradient(45deg, #6a11cb, #9f25fc);
+    }
+    .undeline {
+        text-decoration: underline;
+    }
+}

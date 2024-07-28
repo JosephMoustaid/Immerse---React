@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: $colour-black;
+    a, a:hover{
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+}
