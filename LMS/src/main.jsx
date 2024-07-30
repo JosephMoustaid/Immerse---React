@@ -18,6 +18,7 @@ import Profile from './pages/Profile.jsx';
 import Settings from './pages/Settings.jsx';
 import SignUp from './pages/SignUp.jsx';
 import SignIn from './pages/SignIn.jsx';
+import GroupChat from './pages/GroupChat.jsx';
 
 const AppWrapper = (props) => {
   const location = useLocation();
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'groups',
         element: <Groups />,
+      },
+      {
+        path: 'group-chat',
+        element: <GroupChat />,
       },
       {
         path: 'students',

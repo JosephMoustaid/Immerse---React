@@ -2,7 +2,9 @@ import CourseCard from '../components/CourseCard.jsx'
 import AssingnementCard from '../components/AssignementCard.jsx'
 import arduino from '../assets/course-preview/arduino.png'
 import motor from '../assets/course-preview/motor.png'
-function Dashboard(){
+import PropTypes from 'prop-types'
+import { courseShape, assignmentShape } from '../types/types.js';
+function Dashboard(props){
     return (
         <div className="dashboard">
                         <div >
@@ -64,8 +66,17 @@ function Dashboard(){
                             </div>
                         </div>
                     </div>
+
+        
     );
  }
+
+Dashboard.propTypes = {
+    enrolledCourses: PropTypes.arrayOf(courseShape),
+    recommendedCourses: PropTypes.arrayOf(courseShape),
+    assignments: PropTypes.arrayOf(assignmentShape)
+};
+
  export default Dashboard;
 
 

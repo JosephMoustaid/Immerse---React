@@ -4,7 +4,7 @@ function Footer(){
             <footer className="footer mt-5" >
                 <br />
                 <hr className="px-4"/>
-                <div className="text-center">
+                <div className="text-center pb-2">
                     All rights reserved &copy; 2024
                 </div>
             </footer>

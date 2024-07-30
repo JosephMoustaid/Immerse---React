@@ -19,7 +19,7 @@ function App(props) {
     <div className="container-fluid" data-bs-theme="light">
       <div className="row">
         <Nav currentLink={currentLink} />
-        <div className="content w-100">
+        <div className="content ">
           <div className="d-flex flex-row mb-3 justify-content-between">
             <div className="search-box d-flex flex-row mt-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" className="bi bi-search me-2" viewBox="0 0 16 16">
@@ -108,7 +108,7 @@ function App(props) {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer className="mt-3" />
       </div>
     </div>
   );
