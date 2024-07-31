@@ -3781,8 +3781,8 @@ textarea.form-control-lg {
     border-radius: 0; }
 
 [data-bs-theme="dark"] .accordion-button::after {
-  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fillRule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fillRule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
 
 .breadcrumb {
   --bs-breadcrumb-padding-x: 0;
@@ -9323,7 +9323,8 @@ body {
       background-color: #FFFFFF; }
   #sidebar .logo-link .nav-link .logo-text {
     font-size: 1.3em;
-    font-weight: 900; }
+    font-weight: 900;
+    color: #6a11cb; }
   #sidebar .logo-link .nav-link:hover {
     background-color: inherit;
     box-shadow: none; }
@@ -9441,15 +9442,20 @@ body {
   color: rgba(66, 66, 66, 0.541); }
   .search-box:hover, .search-box:focus, .search-box:active {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
-  .search-box form input {
+  .search-box form input, .search-box form select {
     margin-bottom: 2.5px;
     all: unset;
     height: 25px;
+    font-size: .9em;
     border: none;
     box-shadow: none;
-    font-size: .9em;
     font-weight: 400; }
-    .search-box form input:hover, .search-box form input:active, .search-box form input:focus, .search-box form input::placeholder {
+    @media (max-width: 768px) {
+      .search-box form input, .search-box form select {
+        height: 18px;
+        max-width: 100px !important;
+        font-size: .8em; } }
+    .search-box form input:hover, .search-box form input:active, .search-box form input:focus, .search-box form input::placeholder, .search-box form select:hover, .search-box form select:active, .search-box form select:focus, .search-box form select::placeholder {
       background-color: transparent;
       box-shadow: none;
       color: rgba(66, 66, 66, 0.541); }
@@ -9462,6 +9468,10 @@ body {
   border-radius: 50%;
   height: 30px;
   width: 30px; }
+  @media (max-width: 768px) {
+    .profile-img {
+      height: 20px;
+      width: 20px; } }
 
 #userCollapse a {
   background-color: #FFFFFF;
@@ -9498,7 +9508,8 @@ body {
     box-shadow: 0 15px 30px rgba(252, 92, 255, 0.5), 0 25px 50px rgba(153, 0, 255, 0.3); }
 
 .footer {
-  font-size: .7em; }
+  font-size: .7em;
+  z-index: -500; }
 
 .course-card {
   padding: 10px; }
@@ -9541,6 +9552,9 @@ body {
     text-decoration: none;
     color: inherit; }
 
+.asset-modal .modal-body img {
+  max-width: 200px !important; }
+
 .course-list {
   font-size: .9em; }
   .course-list .course-list-columns {
@@ -9553,7 +9567,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* X-offset Y-offset Blur-radius Color */ }
   .course-list .couse-head {
-    height: 40px; }
+    height: 40px !important; }
   .course-list .course, .course-list .course a {
     text-decoration: none;
     color: rgba(66, 66, 66, 0.541); }
@@ -9735,6 +9749,11 @@ body {
 .notifications {
   font-size: .8em; }
 
+@media (max-width: 768px) {
+  .notifications-icon {
+    height: 15px;
+    width: 15px; } }
+
 #medium-to-large-device-sign-up {
   display: none; }
 
@@ -9756,6 +9775,10 @@ body {
   #small-device-sign-up {
     display: flex; } }
 
+#small-device-sign-up,
+#medium-to-large-device-sign-up {
+  display: none; }
+
 .sign-up-body .form-group {
   min-width: 300px; }
 
@@ -9775,7 +9798,7 @@ body {
 
 .sign-up-body .carousel-controls {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   right: -25%;
   z-index: 1000; }
 
