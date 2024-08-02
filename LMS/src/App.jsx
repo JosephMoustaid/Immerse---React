@@ -14,12 +14,14 @@ function App(props) {
 
   const location = useLocation();
   const currentLink = location.pathname.split('/')[1] || 'dashboard'; // Default to 'dashboard' if path is '/'
-  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up';
+  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course';
 
   // Add or remove class name on body based on route
   useEffect(() => {
     if (noNavFooter) {
       document.body.classList.add('sign-up-body');
+      document.body.classList.add('make-course-up-body');
+
     } else {
       document.body.classList.remove('sign-up-body');
     }

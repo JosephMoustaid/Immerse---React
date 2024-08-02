@@ -29,6 +29,7 @@ import SignUp from './pages/SignUp.jsx';
 import SignIn from './pages/SignIn.jsx';
 import GroupChat from './pages/GroupChat.jsx';
 import Notifications from './pages/Notifications.jsx';
+import MakeCourse from './pages/MakeCourse.jsx';
 
 
 
@@ -209,6 +210,10 @@ const router = createBrowserRouter([
       {
         path: 'notifications',
         element: <Notifications notifications={[notification1, notification2 , notifications3]}/>,
+      },
+      {
+        path: 'make-course',
+        element: <MakeCourse />,
       },
       {
         path: 'sign-up',

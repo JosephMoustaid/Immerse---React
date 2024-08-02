@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-sass": "node-sass src/sass/main.scss src/css/main.css --watch",
+    "watch-sass": "node-sass src/sass/main.scss src/css/style.css --watch",
     "compile-sass": "node-sass src/sass/main.scss src/css/style.comp.css",
     "concat-css": "concat -o src/css/style.concat.css src/css/additional.css src/css/style.comp.css",
     "prefix-css": "postcss --use autoprefixer -b 'last 5 versions' src/css/style.concat.css -o src/css/style.prefix.css",
