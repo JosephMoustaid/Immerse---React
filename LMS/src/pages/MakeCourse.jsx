@@ -9,9 +9,13 @@ const MakeCourse = () => {
     const [courseData, setCourseData] = useState({
         title: '',
         description: '',
-        instructor: '',
-        duration: '',
-        files: [],
+        type: '',
+        category: '',
+        environment: '',
+        privacy: '',
+        coursePDF: '',
+        video: '',
+        additionalAssets: [],
     });
 
     const handleNext = () => {
@@ -19,33 +23,22 @@ const MakeCourse = () => {
         if (currentForm) {
             if (currentForm.checkValidity()) {
                 $('#courseCarousel').carousel('next');
-                setCurrentIndex(prevIndex => prevIndex + 1);
+                setCurrentIndex((prevIndex) => prevIndex + 1);
             } else {
                 currentForm.reportValidity();
             }
         } else {
             // If no form found (last page), just move to the next page
             $('#courseCarousel').carousel('next');
-            setCurrentIndex(prevIndex => prevIndex + 1);
+            setCurrentIndex((prevIndex) => prevIndex + 1);
         }
     };
 
     const handlePrev = () => {
         if (currentIndex > 0) {
             $('#courseCarousel').carousel('prev');
-            setCurrentIndex(prevIndex => prevIndex - 1);
+            setCurrentIndex((prevIndex) => prevIndex - 1);
         }
-    };
-
-    const handleMoreAssetsChange = (event) => {
-        const additionalAssetsPage = document.getElementById('additionalAssetsPage');
-        additionalAssetsPage.style.display = event.target.value === 'yes' ? 'block' : 'none';
-    };
-
-    const handleAssetTypeChange = (event) => {
-        const assetType = event.target.value;
-        document.getElementById('3dModelUpload').style.display = assetType === '3dModel' ? 'block' : 'none';
-        document.getElementById('audioUpload').style.display = assetType === 'audio' ? 'block' : 'none';
     };
 
     const handleConfirm = () => {
@@ -72,8 +65,15 @@ const MakeCourse = () => {
 
             {/* Carousel Controls */}
             <div className="carousel-controls">
-                <button className="btn btn-secondary shadow" onClick={handlePrev}>Previous</button>
-                <button className="btn btn-primary shadow" onClick={handleNext}>Next</button>
+            <button
+                className="btn custom-button2 text-light shadow"
+                id='previous-carousel-page-btn'
+                onClick={handlePrev}
+                style={{ display: currentIndex === 0 ? 'none' : 'inline-block' }}
+                >
+                Previous
+            </button>                
+            <button className="btn custom-button2 text-light shadow" onClick={handleNext}>{currentIndex == 3 ? "Confirm" : "Next"}</button>
             </div>
         </div>
     );

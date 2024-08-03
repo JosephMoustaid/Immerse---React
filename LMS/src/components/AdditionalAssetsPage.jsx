@@ -1,86 +1,94 @@
 import React, { useState } from 'react';
 
-const AdditionalAssetsPage = () => {
-    const [showUploadForm, setShowUploadForm] = useState(false);
-    const [currentAsset, setCurrentAsset] = useState({ type: '', name: '', file: null });
+const AdditionalAssetsPage = ({ setCourseData }) => {
     const [assets, setAssets] = useState([]);
 
-    const handleAddNewAsset = () => {
-        setShowUploadForm(true);
-    };
-
-    const handleAssetTypeChange = (event) => {
-        setCurrentAsset({ ...currentAsset, type: event.target.value });
-    };
-
-    const handleAssetNameChange = (event) => {
-        setCurrentAsset({ ...currentAsset, name: event.target.value });
-    };
-
-    const handleFileChange = (event) => {
-        setCurrentAsset({ ...currentAsset, file: event.target.files[0] });
-    };
-
-    const handleSaveAsset = (event) => {
-        event.preventDefault();
-        if (currentAsset.type && currentAsset.name && currentAsset.file) {
-            setAssets([...assets, currentAsset]);
-            setCurrentAsset({ type: '', name: '', file: null });
-            setShowUploadForm(false);
-        } else {
-            alert('Please fill in all fields and upload a file.');
+    // Function to determine file input accept attribute based on asset type
+    const getAcceptAttribute = (type) => {
+        switch(type) {
+            case 'audio':
+                return 'audio/*'; // Accepts all audio files
+            case '3d-model':
+                return '.obj,.gltf'; // Accepts .obj and .gltf files
+            default:
+                return '';
         }
     };
 
-    const renderAssetPreview = (asset, index) => (
-        <div key={index} className="asset-preview border rounded shadow-sm pt-3 p-2 mb-2">
-            <p><strong>Type:</strong> {asset.type}</p>
-            <p><strong>Name:</strong> {asset.name}</p>
-            <p><strong>File:</strong> {asset.file.name}</p>
-        </div>
-    );
+    const handleInputChange = (index, e) => {
+        const { name, value, files } = e.target;
+        const newAssets = [...assets];
+        if (name === 'file') {
+            newAssets[index][name] = files[0];
+        } else {
+            newAssets[index][name] = value;
+        }
+        setAssets(newAssets);
+        setCourseData((prevData) => ({
+            ...prevData,
+            additionalAssets: newAssets,
+        }));
+    };
+
+    const handleAddAsset = () => {
+        setAssets([...assets, { name: '', type: '', file: '' }]);
+    };
 
     return (
         <div className="carousel-item" id="additionalAssetsPage">
             <div className="container d-flex justify-content-center align-items-center min-vh-100">
                 <div className="card p-4 shadow-lg course-card" style={{ width: '100%', maxWidth: '600px' }}>
-                    <h3 className="text-center mb-4">Upload Additional Assets</h3>
-                    {!showUploadForm ? (
-                        <>
-                            <button className="btn custom-button2 mb-4" onClick={handleAddNewAsset}>+ New Asset</button>
-                            {assets.length > 0 && (
-                                <div className="mb-4">
-                                    <h5 className="mb-3">Uploaded Assets</h5>
-                                    {assets.map((asset, index) => renderAssetPreview(asset, index))}
-                                </div>
-                            )}
-                        </>
-                    ) : (
-                        <form className="additional-assets-form" onSubmit={handleSaveAsset}>
-                            <div className="form-group mb-3">
-                                <label htmlFor="assetType" className="form-label">What type of file do you want to upload?</label>
-                                <select id="assetType" className="form-select" value={currentAsset.type} onChange={handleAssetTypeChange} required>
-                                    <option value="" disabled>Select file type</option>
-                                    <option value="3dModel">3D Model (.gltf, .obj, .dae)</option>
+                    <h3 className="text-center mb-4">Additional Assets</h3>
+                    <form className="course-form">
+                        {assets.map((asset, index) => (
+                            <div key={index} className="form-group mb-3">
+                                <label htmlFor={`assetName-${index}`} className="form-label">
+                                    Asset name <span className="text-danger">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id={`assetName-${index}`}
+                                    name="name"
+                                    className="form-control"
+                                    value={asset.name}
+                                    onChange={(e) => handleInputChange(index, e)}
+                                    required
+                                />
+                                
+                                <label htmlFor={`assetType-${index}`} className="form-label">
+                                    Asset Type <span className="text-danger">*</span>
+                                </label>
+                                <select
+                                    id={`assetType-${index}`}
+                                    name="type"
+                                    className="form-select"
+                                    value={asset.type}
+                                    onChange={(e) => handleInputChange(index, e)}
+                                    required
+                                >
+                                    <option value="">Select asset type</option>
                                     <option value="audio">Audio</option>
+                                    <option value="3d-model">3D model (.obj, .gltf)</option>
                                 </select>
-                            </div>
-                            <div className="form-group mb-3" style={{ display: currentAsset.type === '3dModel' ? 'block' : 'none' }}>
-                                <label htmlFor="fileName" className="form-label">File Name</label>
-                                <input type="text" id="fileName" className="form-control" value={currentAsset.name} onChange={handleAssetNameChange} required />
-                                <label htmlFor="3dModelFile" className="form-label">Upload 3D Model File</label>
-                                <input type="file" id="3dModelFile" className="form-control-file" accept=".gltf,.obj" onChange={handleFileChange} style={{ display: currentAsset.type === '3dModel' ? 'block' : 'none' }} />
-                            </div>
-                            <div className="form-group mb-3" style={{ display: currentAsset.type === 'audio' ? 'block' : 'none' }}>
-                                <label htmlFor="fileName" className="form-label">File Name</label>
-                                <input type="text" id="fileName" className="form-control" value={currentAsset.name} onChange={handleAssetNameChange} required />
-                                <label htmlFor="audioFile" className="form-label">Upload Audio File</label>
-                                <input type="file" id="audioFile" className="form-control-file" accept=".mp3,.wav" onChange={handleFileChange} style={{ display: currentAsset.type === 'audio' ? 'block' : 'none' }} />
-                            </div>
-                            <button type="submit" className="btn btn-success mb-4">Save Asset</button>
-                        </form>
-                    )}
 
+                                <label htmlFor={`assetFile-${index}`} className="form-label">
+                                    Asset File <span className="text-danger">*</span>
+                                </label>
+                                <input
+                                    type="file"
+                                    id={`assetFile-${index}`}
+                                    name="file"
+                                    className="form-control"
+                                    accept={getAcceptAttribute(asset.type)} // Dynamically set accept attribute
+                                    onChange={(e) => handleInputChange(index, e)}
+                                    required
+                                />
+                            </div>
+                        ))}
+                        <button type="button" className="btn custom-button2 px-5" onClick={handleAddAsset}>
+                            + Add Asset
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -9779,7 +9779,7 @@ body {
 
 .sign-up-body .form-group {
   min-width: 300px; }
-  .sign-up-body .form-group input, .sign-up-body .form-group select {
+  .sign-up-body .form-group input, .sign-up-body .form-group select, .sign-up-body .form-group textarea {
     font-size: .8em !important;
     height: 30px; }
 
