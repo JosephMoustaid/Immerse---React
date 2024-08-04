@@ -9576,6 +9576,7 @@ body {
   max-width: 200px !important; }
 
 .context-menu {
+  z-index: 1000;
   padding: 10px;
   position: absolute;
   background: #1f1f1f;
@@ -9680,6 +9681,7 @@ body {
     font-weight: 700;
     color: #FFFFFF; }
   .group-chat .group-chat-head .group-last-msg-time {
+    margin-top: 8px;
     color: #FFFFFF;
     font-size: .8em;
     text-transform: uppercase; }

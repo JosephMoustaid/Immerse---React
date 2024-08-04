@@ -1,4 +1,5 @@
 .context-menu {
+  z-index: 1000;
     padding: 10px;
     position: absolute;
     background: $context-background-colour;

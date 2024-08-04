@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import defaultGroupProfile from '../assets/group-profiles/group.png'
 import defaultUserProfile from '../assets/group-profiles/user.avif'
 
-function GroupChat({ group }) {
+function GroupChat({ group } , {user}) {
     return (
         <div   className="group-chat mt-2 w-100">
             <div   className="group-chat-head rounded">
@@ -18,7 +18,7 @@ function GroupChat({ group }) {
                 </div>
             </div>
             <div   className="group-chat-msgs">
-                {group.messages.map((msg, index) => (
+                {group.chat.map((msg, index) => (
                     <div key={index}   className={`msgs-pack ${msg.isCurrentUser ? 'current-user' : ''}`}>
                         {!msg.isCurrentUser && <img   className="user-profile" src={msg.userProfile || defaultUserProfile} alt="user" />}
                         <div   className="msg-content">
@@ -26,7 +26,7 @@ function GroupChat({ group }) {
                                 {msg.username} {msg.isCurrentUser && <img   className="user-profile" src={msg.userProfile || defaultUserProfile} alt="user" />}
                             </div>
                             <div   className={`user-msg shadow ${msg.isCurrentUser ? 'current-user-msg' : ''}`}>
-                                {msg.text} <span   className="msg-time">{msg.time}</span>
+                                {msg.message} <span   className="msg-time">{msg.time}</span>
                             </div>
                         </div>
                     </div>

@@ -30,6 +30,7 @@ import SignIn from './pages/SignIn.jsx';
 import GroupChat from './pages/GroupChat.jsx';
 import Notifications from './pages/Notifications.jsx';
 import MakeCourse from './pages/MakeCourse.jsx';
+import Help from "./pages/Help.jsx"
 
 
 
@@ -158,9 +159,14 @@ const group1 = {
   id: 201,
   name: "Robotics Club",
   members: [student, student2],
-  chat: [{ message: "Guys, When will the exam take place?", time: "11:31 pm" }],
+  chat: [
+    { message: "Guys, When will the exam take place?", time: "11:31 pm", username: "Alice", userProfile: student.profilePicture, isCurrentUser: false },
+    { message: "The exam is scheduled for next Tuesday.", time: "11:33 pm", username: "Bob", userProfile: student2.profilePicture, isCurrentUser: true },
+    { message: "Can someone share the study materials?", time: "11:35 pm", username: "Alice", userProfile: student.profilePicture, isCurrentUser: false },
+    { message: "Sure, I'll upload them to the group folder.", time: "11:37 pm", username: "Bob", userProfile: student2.profilePicture, isCurrentUser: true }
+  ],
   adminId: 1,
-  profile: groupProfile
+  profile: groupProfile || defaultGroupProfile
 };
 const group2 = {
   id: 202,
@@ -246,6 +252,10 @@ const router = createBrowserRouter([
       {
         path: 'sign-in',
         element: <SignIn user={student2}/>,
+      },
+      {
+        path: 'help',
+        element: <Help />,
       },
     ],
   },
