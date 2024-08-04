@@ -11,7 +11,7 @@ const Assets = ({ assets }) => {
         <h4   className="mt-2">Assets</h4>
         <div   className="row">
           {assets.map((asset, index) => (
-            <div   className="col-3 mb-3" key={index}>
+            <div   className="col-12 col-sm-6 col-md-3 mb-3" key={index}>
               <a href="#" data-bs-toggle="modal" data-bs-target={`#staticBackdrop${index}`}>
                 <AssetCard {...asset} />
               </a>

@@ -89,4 +89,15 @@
     #sidebar:hover + & {
         margin-left: 250px; /* Same as the max-width on hover */
     }
+    .user-menu{
+        a , li {
+            background-color: $colour-white; /* Initial background color */
+            transition: background-color 0.5s ease-in-out; /* Transition property */
+        }
+        a:hover , li:hover{
+            border-radius: 12px;
+
+            background-color: $slight-shadow-grey !important;
+        }
+    }
 }

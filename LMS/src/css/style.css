@@ -9363,6 +9363,14 @@ body {
   #sidebar:hover + .content {
     margin-left: 250px;
     /* Same as the max-width on hover */ }
+  .content .user-menu a, .content .user-menu li {
+    background-color: #FFFFFF;
+    /* Initial background color */
+    transition: background-color 0.5s ease-in-out;
+    /* Transition property */ }
+  .content .user-menu a:hover, .content .user-menu li:hover {
+    border-radius: 12px;
+    background-color: rgba(223, 223, 223, 0.364) !important; }
 
 .card {
   border-radius: 10px; }
@@ -9470,14 +9478,22 @@ body {
   border-radius: 50%;
   height: 30px;
   width: 30px; }
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     .profile-img {
-      height: 20px;
-      width: 20px; } }
+      height: 25px;
+      width: 25px; } }
+  @media (min-width: 501px) and (max-width: 768px) {
+    .profile-img {
+      height: 30px;
+      width: 30px; } }
 
 #userCollapse a {
   background-color: #FFFFFF;
   color: #000000 !important; }
+
+@media (max-width: 768px) {
+  .notifications-number {
+    font-size: .6em !important; } }
 
 .page-helper {
   font-size: .8em; }
@@ -9534,6 +9550,8 @@ body {
       font-weight: 700; }
   .course-card .grade-msg span {
     border-bottom: 2px solid #19ad09; }
+  .course-card #saveToBookmarksBtn:hover {
+    color: #19ad09; }
 
 .group {
   height: 60px;
@@ -9556,6 +9574,37 @@ body {
 
 .asset-modal .modal-body img {
   max-width: 200px !important; }
+
+.context-menu {
+  padding: 10px;
+  position: absolute;
+  background: #1f1f1f;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  font-family: 'Roboto', sans-serif;
+  display: none;
+  font-size: .7em;
+  min-width: 200px;
+  max-width: 300px; }
+  .context-menu.visible {
+    display: block; }
+  .context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+  .context-menu li {
+    padding: 8px 18px;
+    text-align: start; }
+    .context-menu li a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background-color 0.5s ease-in-out;
+      /* Transition property */ }
+    .context-menu li:hover {
+      background: #585858;
+      border-radius: inherit;
+      color: inherit; }
 
 .course-list {
   font-size: .9em; }

@@ -27,7 +27,9 @@ export const courseShape = PropTypes.shape({
     type: PropTypes.string,
     teacher: PropTypes.string,
     previewImg: PropTypes.string,
-    type: PropTypes.string // public or private
+    type: PropTypes.string, // public or private
+    bookmark: PropTypes.bool // public or private
+
 });
 
 export const assignmentShape = PropTypes.shape({

@@ -120,15 +120,39 @@ const course1 = {
   id: 101,
   name: "Arduino Basics",
   type: "public",
+  description:"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ..",
   teacher: "John Doe",
   previewImg: arduinoCourse,
+  bookmark :false
 };
 const course2 = {
   id: 102,
+  description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
   name: "Engine Mechanics",
   type: "private",
   teacher: "Jane Smith",
   previewImg: engineCourse,
+  bookmark :false
+};
+const course3 = {
+  id: 103,
+  description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
+  name: "Engine Mechanics",
+  type: "private",
+  teacher: "Jane Smith",
+  previewImg: engineCourse,
+  bookmark :true
+
+};
+const course4 = {
+  id: 104,
+  description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
+  name: "Engine Mechanics",
+  type: "private",
+  teacher: "Jane Smith",
+  previewImg: engineCourse,
+  bookmark :true
+
 };
 const group1 = {
   id: 201,
@@ -163,7 +187,7 @@ const assignement2 ={
 
 const AppWrapper = (props) => {
   const location = useLocation();
-  return <App currentLink={location.pathname} {...props} />;
+  return <App currentLink={location.pathname} {...props} user={student2} />;
 };
 
 const router = createBrowserRouter([
@@ -173,31 +197,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Dashboard enrolledCourses={[course1 , course2]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]} />,
+        element: <Dashboard enrolledCourses={[course1 , course2]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]}  user={student2}/>,
       },
       {
         path: 'dashboard',
-        element: <Dashboard enrolledCourses={[course1 , course2]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]} />,
+        element: <Dashboard enrolledCourses={[course1 , course2]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]} user={student2}/>,
       },
       {
         path: 'courses',
-        element: <Courses courses={[course1 ,course2 , course1 , course2]}/>,
+        element: <Courses courses={[course1 ,course2 , course1 , course2]} user={student2} />,
       },
       {
         path: 'groups',
-        element: <Groups groups={[group1 , group2]} />,
+        element: <Groups groups={[group1 , group2]} user={student2} />,
       },
       {
         path: 'group-chat',
-        element: <GroupChat group={group1} />,
+        element: <GroupChat group={group1} user={student2} />,
       },
       {
         path: 'students',
-        element: <Students students={[student , student2 , student , student2]} />,
+        element: <Students students={[student , student2 , student , student2]} user={student2} />,
       },
       {
         path: 'assets',
-        element: <Assets assets={[asset1 , asset2 , asset1 , asset2]} />,
+        element: <Assets assets={[asset1 , asset2 , asset1 , asset2]} user={student2} />,
       },
       {
         path: 'profile',
@@ -205,23 +229,23 @@ const router = createBrowserRouter([
       },
       {
         path: 'settings',
-        element: <Settings settings={settings1} />,
+        element: <Settings settings={settings1} user={student2} />,
       },
       {
         path: 'notifications',
-        element: <Notifications notifications={[notification1, notification2 , notifications3]}/>,
+        element: <Notifications notifications={[notification1, notification2 , notifications3]} user={student2}/>,
       },
       {
         path: 'make-course',
-        element: <MakeCourse />,
+        element: <MakeCourse user={student2}/>,
       },
       {
         path: 'sign-up',
-        element: <SignUp />,
+        element: <SignUp user={student2}/>,
       },
       {
         path: 'sign-in',
-        element: <SignIn />,
+        element: <SignIn user={student2}/>,
       },
     ],
   },

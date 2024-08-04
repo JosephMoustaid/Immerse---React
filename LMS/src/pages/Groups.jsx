@@ -1,8 +1,21 @@
 import PropTypes from 'prop-types';
 import { groupShape } from '../types/types.js';
 import defaultGroupProfile from '../assets/group-profiles/group.png';
-
+import { useEffect } from 'react';
 function Groups({ groups }) {
+
+    const changeExploreToMakeGroup = () => {
+        let exploreBtn = document.querySelector(".explore-button");
+        if (exploreBtn) {
+            exploreBtn.textContent = "Make a new group";
+            exploreBtn.setAttribute("href", "make-group");
+        }
+    };
+
+    useEffect(() => {
+        changeExploreToMakeGroup();
+    }, []);
+
     return (
         <div   className="groups">
             <h4   className="mt-2">Groups</h4>

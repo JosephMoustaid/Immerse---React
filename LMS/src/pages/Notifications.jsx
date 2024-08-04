@@ -1,7 +1,20 @@
 import PropTypes from 'prop-types';
 import { notificationShape } from '../types/types';
+import { useEffect } from 'react';
 
 function Notifications(props) {
+
+    const removeExploreButton = () => {
+        let exploreBtn = document.querySelector(".explore-button");
+        if (exploreBtn) {
+            exploreBtn.style.display = "none";
+        }
+    };
+
+    useEffect(() => {
+        removeExploreButton();
+    }, []);
+
     return (
         <div   className="notifications w-100 mt-3 w-md-100 m-auto">
             <div   className='col-12'>

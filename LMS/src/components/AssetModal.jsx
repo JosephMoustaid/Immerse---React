@@ -11,11 +11,11 @@ function AssetModal({ id, name, type, format, preview, modalId }) {
                         <button type="button"   className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div   className="modal-body">
-                        <div   className="rounded">
-                            <img src={preview}   className="card-img-top rounded" alt={`${name} preview`} />
+                        <div   className="rounded d-flex flex-column justify-space-between">
+                            <img src={preview} style={{maxWidth:"300px" , margin:"auto"}}   className="card-img-top rounded" alt={`${name} preview`} />
                             <p   className="mt-2">{name}</p>
-                            <p>File Type: {type}</p>
-                            <p>File format: .{format}</p>
+                            <p>File Type: <span className='underline'>{type}</span> </p>
+                            <p>File format: <span className='underline'>.{format}</span></p>
                         </div>
                     </div>
                     <div   className="modal-footer">

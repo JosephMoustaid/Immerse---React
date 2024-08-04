@@ -14,6 +14,17 @@ function Settings(props) {
         }
     }, [recoveryEmailOption]);
 
+    const removeExploreButton = () => {
+        let exploreBtn = document.querySelector(".explore-button");
+        if (exploreBtn) {
+            exploreBtn.style.display = "none";
+        }
+    };
+
+    useEffect(() => {
+        removeExploreButton();
+    }, []);
+    
     const handleSelectChange = (event) => {
         setRecoveryEmailOption(event.target.value);
     };

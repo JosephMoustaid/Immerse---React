@@ -28,4 +28,9 @@
             border-bottom: 2px solid $colour-green;
         }
     }
+    #saveToBookmarksBtn{
+        &:hover{
+            color: $colour-green;
+        }
+    }
 }
