@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 function AssingnementCard(props){
     return(
-        <div   className="course-card rounded shadow scale-on-hover">
+        <div   className="course-card rounded shadow small-scale-on-hover">
             <div   className="grade">Grade : <span   className="text-success">{props.precentage} %</span> </div>
             <div   className="grade-msg ">Status :  <span   className="link-underline-success">{props.passed ? "passed" : "failed"}</span> </div>
             <h6   className="course-name" >{props.type} Course : {props.name}</h6>

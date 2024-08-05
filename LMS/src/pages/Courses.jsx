@@ -25,7 +25,9 @@ function Courses({ courses }) {
 
     return (
         <div className="course-list mt-4">
-
+            <div className="d-flex justify-content-end">
+                <a href="make-course" className='custom-button2 px-3 text-light'>make a course</a>
+            </div>
             <h4 className='underline mt-2 mb-3'>This is how the courses will be displayed to teachers</h4>
             <p className='underline mt-2 mb-3'>the teachers will have the courses they created in here , if they wanna browse public courses , thewy simply search</p>
             <div   className="course-list-columns course-head" style={{height : "30px"}}>
@@ -55,15 +57,31 @@ function Courses({ courses }) {
             ))}
             <h4 className='underline mt-2 mb-3'>This is how the courses will be displayed to students so they can browse</h4>
             <div className="dashboard">
-                <div   className="mt-5" id='topPicks'>
-                    <h4   className="mt-2">Top Picks for You</h4>
+                <div   className="mt-5 mb-5" id='topPicks'>
+                    <h4   className="mt-2">Courses </h4>
                     <div   className="row">
+                        <h4   className="mt-2">Software </h4>
                         {courses.length > 0 ? (
                         courses.map((course, index) => (
+                            course.category == "software" ? 
                             <div   className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
                                 <a onClick={handleShow} href="#"><CourseCard {...course} /></a>
                                 <OffCanvasCourse show={showOffCanvas} onClose={handleClose} course={course} />
                             </div>
+                            : ""
+                        ))
+                        ) : (
+                        <p>No courses available.</p>
+                        )}
+                        <h4   className="mt-2">Mechanics </h4>
+                        {courses.length > 0 ? (
+                        courses.map((course, index) => (
+                            course.category == "mechanics" ? 
+                            <div   className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
+                                <a onClick={handleShow} href="#"><CourseCard {...course} /></a>
+                                <OffCanvasCourse show={showOffCanvas} onClose={handleClose} course={course} />
+                            </div>
+                            : ""
                         ))
                         ) : (
                         <p>No courses available.</p>

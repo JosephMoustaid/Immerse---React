@@ -47,7 +47,7 @@ function App(props) {
 
   const location = useLocation();
   const currentLink = location.pathname.split('/')[1] || 'dashboard'; // Default to 'dashboard' if path is '/'
-  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course';
+  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course' || location.pathname === '/create-group';
 
   useEffect(() => {
     if (noNavFooter) {
@@ -64,8 +64,9 @@ function App(props) {
   }
 
   return (
+    <>
+    <ContextMenu isVisible={contextMenu.isVisible} position={contextMenu.position} onClose={handleCloseMenu}/>
     <div className="container-fluid" data-bs-theme="light" onContextMenu={handleContextMenu}>
-      <ContextMenu isVisible={contextMenu.isVisible} position={contextMenu.position} onClose={handleCloseMenu} />
       <div className="row">
         <Nav currentLink={currentLink} />
         <div className="content with-nav-footer">
@@ -174,6 +175,7 @@ function App(props) {
       <Footer className="mt-3" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     </div>
+    </>
   );
 }
 

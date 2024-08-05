@@ -1,10 +1,10 @@
 function Footer(){
     return (
         <>
-            <footer   className="footer mt-5 z-0" >
+            <footer   className="footer mt-1" >
                 <br />
                 <hr   className="px-4"/>
-                <div   className="text-center pb-2">
+                <div   className="text-center">
                     All rights reserved &copy; 2024
                 </div>
             </footer>

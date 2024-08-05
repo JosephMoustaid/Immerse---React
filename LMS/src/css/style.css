@@ -9525,9 +9525,33 @@ body {
     background-position: 100% 0;
     box-shadow: 0 15px 30px rgba(252, 92, 255, 0.5), 0 25px 50px rgba(153, 0, 255, 0.3); }
 
+.custom-button3 {
+  display: inline-block;
+  padding: 10px;
+  margin-top: 5px;
+  background: linear-gradient(45deg, #40ff00, #11500d);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  border: none;
+  font-size: 12px;
+  background-size: 200%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-position 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  box-shadow: 0 10px 20px rgba(33, 225, 55, 0.4), 0 20px 40px rgba(7, 255, 114, 0.2); }
+  .custom-button3:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-position: 100% 0;
+    box-shadow: 0 15px 30px rgba(46, 232, 13, 0.5), 0 25px 50px rgba(106, 255, 6, 0.3); }
+
 .footer {
-  font-size: .7em;
-  z-index: -500; }
+  font-size: 0.7em;
+  position: fixed;
+  bottom: 0px;
+  width: inherit;
+  text-align: center;
+  background-color: white; }
 
 .course-card {
   padding: 10px; }
@@ -9594,9 +9618,10 @@ body {
     padding: 0;
     margin: 0; }
   .context-menu li {
-    padding: 8px 18px;
+    padding: 0;
     text-align: start; }
     .context-menu li a {
+      padding: 8px 18px;
       text-decoration: none;
       color: inherit;
       display: block;
@@ -9924,3 +9949,82 @@ body {
     margin-bottom: 1.5rem;
     text-align: center;
     color: #343a40; }
+
+#create-group-carousel {
+  box-sizing: border-box; }
+  #create-group-carousel .carousel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; }
+    #create-group-carousel .carousel-item.active {
+      display: block; }
+    #create-group-carousel .carousel-item form {
+      width: 100%;
+      max-width: 400px;
+      min-height: 200px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background: #fff;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      #create-group-carousel .carousel-item form .form-group {
+        margin-bottom: 15px;
+        min-width: 100%; }
+        #create-group-carousel .carousel-item form .form-group label {
+          font-weight: bold;
+          margin-bottom: 5px;
+          display: block; }
+        #create-group-carousel .carousel-item form .form-group input[type="text"],
+        #create-group-carousel .carousel-item form .form-group textarea,
+        #create-group-carousel .carousel-item form .form-group input[type="file"] {
+          width: 100%;
+          padding: 10px;
+          border-radius: 4px;
+          border: 1px solid #ced4da;
+          font-size: .6em !important; }
+        #create-group-carousel .carousel-item form .form-group input[type="file"] {
+          padding: 10px;
+          border-radius: 50%; }
+        #create-group-carousel .carousel-item form .form-group textarea {
+          resize: vertical;
+          min-height: 100px; }
+        #create-group-carousel .carousel-item form .form-group img {
+          display: block;
+          border-radius: 4px;
+          margin-top: 10px; }
+      #create-group-carousel .carousel-item form .btn {
+        position: absolute;
+        bottom: 20px;
+        padding: 10px 20px;
+        font-size: .8em; }
+        #create-group-carousel .carousel-item form .btn.btn-prev {
+          left: 20px; }
+        #create-group-carousel .carousel-item form .btn.btn-next {
+          right: 20px; }
+  #create-group-carousel .suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: .6em; }
+    #create-group-carousel .suggestions-list li {
+      padding: 4px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(29, 29, 29, 0.329); }
+      #create-group-carousel .suggestions-list li:hover {
+        background: #f0f0f0; }
+  #create-group-carousel p {
+    font-size: .7em; }

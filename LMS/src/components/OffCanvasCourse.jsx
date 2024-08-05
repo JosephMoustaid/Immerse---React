@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const OffCanvasCourse = ({ show, onClose, course }) => {
   return (
-    <div className={`offcanvas offcanvas-end ${show ? 'show' : ''}`} tabIndex="-1" id="offCanvasCourse" aria-labelledby="offCanvasCourseLabel" style={{ visibility: show ? 'visible' : 'hidden' }}>
+    <div className={`z-5 offcanvas offcanvas-end ${show ? 'show' : ''}`} tabIndex="-1" id="offCanvasCourse" aria-labelledby="offCanvasCourseLabel" style={{ visibility: show ? 'visible' : 'hidden' }}>
       <div className="offcanvas-header">
         <h5 className="offcanvas-title" id="offCanvasCourseLabel">Course Details</h5>
         <button type="button" className="btn-close" aria-label="Close" onClick={onClose}></button>

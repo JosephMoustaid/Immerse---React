@@ -75,7 +75,7 @@ const Dashboard = ({ enrolledCourses = [],bookmarksCourses = [], recommendedCour
           </div>
         </div>
 
-        <div   className="mt-5 mb-4" id='grades'>
+        <div   className="mt-5 mb-5" id='grades'>
           <h4   className="mt-2">Grades</h4>
           <div   className="row">
             {assignments.length > 0 ? (

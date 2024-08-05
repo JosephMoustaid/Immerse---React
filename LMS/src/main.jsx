@@ -31,6 +31,7 @@ import GroupChat from './pages/GroupChat.jsx';
 import Notifications from './pages/Notifications.jsx';
 import MakeCourse from './pages/MakeCourse.jsx';
 import Help from "./pages/Help.jsx"
+import CreateGroup from "./pages/CreateGroup.jsx"
 
 
 
@@ -121,6 +122,7 @@ const course1 = {
   id: 101,
   name: "Arduino Basics",
   type: "public",
+  category : "software",
   description:"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ..",
   teacher: "John Doe",
   previewImg: arduinoCourse,
@@ -131,6 +133,7 @@ const course2 = {
   description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
   name: "Engine Mechanics",
   type: "private",
+  category : "mechanics",
   teacher: "Jane Smith",
   previewImg: engineCourse,
   bookmark :false
@@ -139,6 +142,7 @@ const course3 = {
   id: 103,
   description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
   name: "Engine Mechanics",
+  category : "mechanics",
   type: "private",
   teacher: "Jane Smith",
   previewImg: engineCourse,
@@ -149,6 +153,7 @@ const course4 = {
   id: 104,
   description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
   name: "Engine Mechanics",
+  category : "mechanics",
   type: "private",
   teacher: "Jane Smith",
   previewImg: engineCourse,
@@ -203,11 +208,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Dashboard enrolledCourses={[course1 , course2]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]}  user={student2}/>,
+        element: <Dashboard enrolledCourses={[course1 , course2, course3]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]}  user={student2}/>,
       },
       {
         path: 'dashboard',
-        element: <Dashboard enrolledCourses={[course1 , course2]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]} user={student2}/>,
+        element: <Dashboard enrolledCourses={[course1 , course2,course3]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]} user={student2}/>,
       },
       {
         path: 'courses',
@@ -256,6 +261,10 @@ const router = createBrowserRouter([
       {
         path: 'help',
         element: <Help />,
+      },
+      {
+        path: 'create-group',
+        element: <CreateGroup />,
       },
     ],
   },

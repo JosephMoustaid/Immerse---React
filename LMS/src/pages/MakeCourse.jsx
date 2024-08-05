@@ -73,7 +73,7 @@ const MakeCourse = () => {
                 >
                 Previous
             </button>                
-            <button className="btn custom-button2 text-light shadow" onClick={handleNext}>{currentIndex == 3 ? "Confirm" : "Next"}</button>
+            <button className="btn custom-button3 text-light shadow" onClick={handleNext}>{currentIndex == 3 ? "Confirm" : "Next"}</button>
             </div>
         </div>
     );

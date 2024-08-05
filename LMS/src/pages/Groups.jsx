@@ -18,7 +18,11 @@ function Groups({ groups }) {
 
     return (
         <div   className="groups">
-            <h4   className="mt-2">Groups</h4>
+            <div className="d-flex flex-row justify-content-between">
+                <h4   className="mt-2">Groups</h4>
+                <a href="create-group" className='custom-button2 px-3 text-light'  >create</a>
+            </div>
+            <hr />
             {groups.map(group => (
                 <div key={group.id}   className="group rounded shadow small-scale-on-hover mt-2">
                     <a href={`./group-chat/${group.id}`}>
