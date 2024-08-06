@@ -13,11 +13,18 @@
     .couse-head{
         height: 40px !important;
     }
-    .course, .course a{
+    .course{
         text-decoration: none;
         color: $colour-transparent-grey;
         &:hover{
             color: $colour-transparent-black;
+        }
+        a {
+            color: $colour-blue !important;
+            border-bottom: 1px solid $colour-blue !important;
+            &:hover{
+                color: $colour-dark-blue !important;
+            }
         }
     }
     .course{

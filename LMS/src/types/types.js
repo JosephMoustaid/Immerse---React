@@ -21,17 +21,7 @@ export const settingShape = PropTypes.shape({
     recoveryEmail :PropTypes.string, // recovery email if recoveryEmailSett is On
 });
 
-export const courseShape = PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    type: PropTypes.string,
-    teacher: PropTypes.string,
-    previewImg: PropTypes.string,
-    type: PropTypes.string, // public or private
-    bookmark: PropTypes.bool,  
-    category: PropTypes.string  
 
-});
 
 export const assignmentShape = PropTypes.shape({
     id: PropTypes.number,
@@ -67,6 +57,17 @@ export const teacherShape = PropTypes.shape({
     notifications : PropTypes.arrayOf(notificationShape)
 });
 
+export const courseShape = PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    teacher: PropTypes.string,
+    teacherProfile : PropTypes.string,
+    previewImg: PropTypes.string,
+    type: PropTypes.string, // public or private
+    bookmark: PropTypes.bool,  
+    category: PropTypes.string  
+});
 export const messageShape = PropTypes.shape({
     id: PropTypes.number,
     content: PropTypes.string,

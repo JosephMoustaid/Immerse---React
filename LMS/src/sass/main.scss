@@ -8,6 +8,8 @@ $primary:white;
 // utils
 @import "../sass/2.utils/variables.scss";
 @import "../sass/2.utils/scale-on-hover.scss";
+// theme 
+@import "../sass/6.themes/themes.scss";
 // base
 @import "../sass/1.base/base.scss";
 // Components
@@ -22,6 +24,7 @@ $primary:white;
 @import "../sass/4.components/group.scss";
 @import "../sass/4.components/assetModal.scss";
 @import "../sass/4.components/contextMenu.scss";
+@import "../sass/4.components/course-offcanvas.scss";
 
 // Pages
 @import "../sass/5.pages/course.scss";

@@ -11988,6 +11988,7 @@ textarea.form-control-lg {
 body {
   font-family: "Montserrat", sans-serif;
   color: #000000;
+  background-color: #ffffff !important;
 }
 body .underline {
   text-decoration: underline !important;
@@ -11995,6 +11996,9 @@ body .underline {
 body a, body a:hover {
   text-decoration: none !important;
   color: inherit !important;
+}
+body .card {
+  background-color: #ffffff;
 }
 
 #sidebar {
@@ -12004,7 +12008,7 @@ body a, body a:hover {
   white-space: nowrap;
   overflow: hidden;
   position: fixed;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: rgba(0, 0, 0, 0.616);
 }
 #sidebar:hover {
@@ -12020,7 +12024,7 @@ body a, body a:hover {
   border-radius: 10px;
 }
 #sidebar .current-link svg {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 #sidebar .logo-link .nav-link .logo-text {
   font-size: 1.3em;
@@ -12048,7 +12052,7 @@ body a, body a:hover {
   transition: 0.3s;
 }
 #sidebar ul.components li a i, #sidebar ul.components li a svg {
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   padding: 5px;
   border-radius: 4px;
   margin-right: 15px;
@@ -12072,7 +12076,7 @@ body a, body a:hover {
   margin-left: 250px; /* Same as the max-width on hover */
 }
 .content .user-menu a, .content .user-menu li {
-  background-color: #FFFFFF; /* Initial background color */
+  background-color: #ffffff; /* Initial background color */
   transition: background-color 0.5s ease-in-out; /* Transition property */
 }
 .content .user-menu a:hover, .content .user-menu li:hover {
@@ -12100,7 +12104,7 @@ body a, body a:hover {
 
 .btn-purple:hover {
   background-color: rgba(225, 30, 255, 0.5647058824);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .text-muted {
@@ -12137,7 +12141,7 @@ body a, body a:hover {
 }
 .container .sign-in-form .form-group .form-control, .container .sign-up-form .form-group .form-control {
   padding: 0.75rem;
-  border: 1px solid #ced4da;
+  border: 1px solid rgb(161, 160, 153) 0;
   border-radius: 5px;
   transition: border-color 0.3s ease;
 }
@@ -12150,7 +12154,7 @@ body a, body a:hover {
   padding: 10px 30px;
   margin-top: 20px;
   background: linear-gradient(45deg, #6a11cb, #9f25fc);
-  color: white;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
   border-radius: 50px;
@@ -12230,7 +12234,7 @@ body a, body a:hover {
 }
 
 #userCollapse a {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #000000 !important;
 }
 
@@ -12258,7 +12262,7 @@ body a, body a:hover {
   padding: 10px;
   margin-top: 5px;
   background: linear-gradient(45deg, #6a11cb, #9f25fc);
-  color: white;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
   border-radius: 50px;
@@ -12275,13 +12279,35 @@ body a, body a:hover {
   box-shadow: 0 15px 30px rgba(252, 92, 255, 0.5), 0 25px 50px rgba(153, 0, 255, 0.3);
 }
 
+.custom-button3 {
+  display: inline-block;
+  padding: 10px;
+  margin-top: 5px;
+  background: linear-gradient(45deg, #40ff00, #11500d);
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  border: none;
+  font-size: 12px;
+  background-size: 200%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-position 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  box-shadow: 0 10px 20px rgba(33, 225, 55, 0.4), 0 20px 40px rgba(7, 255, 114, 0.2);
+}
+.custom-button3:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-position: 100% 0;
+  box-shadow: 0 15px 30px rgba(46, 232, 13, 0.5), 0 25px 50px rgba(106, 255, 6, 0.3);
+}
+
 .footer {
   font-size: 0.7em;
   position: fixed;
   bottom: 0px;
   width: inherit;
   text-align: center;
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .course-card {
@@ -12352,7 +12378,7 @@ body a, body a:hover {
   padding: 10px;
   position: absolute;
   background: rgb(31, 31, 31);
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: capitalize;
   font-family: "Roboto", sans-serif;
   display: none;
@@ -12383,6 +12409,27 @@ body a, body a:hover {
   background: rgb(88, 88, 88);
   border-radius: inherit;
   color: inherit;
+}
+
+.course-offcanvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px; /* Adjust the width as needed */
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.course-offcanvas.show {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .course-list {
@@ -12477,17 +12524,17 @@ body a, body a:hover {
 }
 .group-chat .group-chat-head .group-name {
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .group-chat .group-chat-head .group-last-msg-time {
   margin-top: 8px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 0.8em;
   text-transform: uppercase;
 }
 .group-chat .group-chat-head .group-last-msg {
   font-size: 0.8em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .group-chat .group-chat-msgs {
   padding: 10px;
@@ -12514,7 +12561,7 @@ body a, body a:hover {
   border-radius: 15px 15px 0 15px;
   background: linear-gradient(45deg, #6a11cb, #9f25fc);
   background-size: 200%;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: auto;
 }
 .group-chat .group-chat-msgs .msgs-pack.current-user .msg-content .user-msg .msg-time {
@@ -12698,8 +12745,8 @@ body a, body a:hover {
   width: auto;
 }
 .sign-up-body .carousel-controls button {
-  background-color: white;
-  color: black;
+  background-color: #ffffff;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
@@ -12740,7 +12787,7 @@ body a, body a:hover {
   width: 100%;
   max-width: 500px;
   border-radius: 15px;
-  background: white;
+  background: #ffffff;
 }
 .make-course-up-body .course-form .form-group,
 .make-course-up-body .file-upload-form .form-group,
@@ -12815,6 +12862,7 @@ body a, body a:hover {
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ced4da;
+  font-size: 0.6em !important;
 }
 #create-group-carousel .carousel-item form .form-group input[type=file] {
   padding: 10px;
@@ -12840,4 +12888,31 @@ body a, body a:hover {
 }
 #create-group-carousel .carousel-item form .btn.btn-next {
   right: 20px;
+}
+#create-group-carousel .suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.6em;
+}
+#create-group-carousel .suggestions-list li {
+  padding: 4px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(29, 29, 29, 0.329);
+}
+#create-group-carousel .suggestions-list li:hover {
+  background: #f0f0f0;
+}
+#create-group-carousel p {
+  font-size: 0.7em;
 }/*# sourceMappingURL=main.css.map */

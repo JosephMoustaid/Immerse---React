@@ -18,7 +18,7 @@ const UserMenu = (props) => {
       >
         <div className="card card-body p-2 shadow-lg">
           <h2 className="fw-normal p-3 fs-5">
-            Bonjour<span> {props.firstname} !</span>
+            Hi<span> {props.firstname} !</span>
           </h2>
           <hr className="m-1" />
           <nav className="p-0">

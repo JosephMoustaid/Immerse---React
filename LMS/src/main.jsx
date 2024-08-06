@@ -32,7 +32,7 @@ import Notifications from './pages/Notifications.jsx';
 import MakeCourse from './pages/MakeCourse.jsx';
 import Help from "./pages/Help.jsx"
 import CreateGroup from "./pages/CreateGroup.jsx"
-
+import Test from "./pages/Test.jsx"
 
 
 // this is just for testing
@@ -124,7 +124,8 @@ const course1 = {
   type: "public",
   category : "software",
   description:"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ..",
-  teacher: "John Doe",
+  teacher: teacher1.firstname+ teacher1.lastname, 
+  teacherProfile: teacher1.profile,
   previewImg: arduinoCourse,
   bookmark :false
 };
@@ -134,7 +135,8 @@ const course2 = {
   name: "Engine Mechanics",
   type: "private",
   category : "mechanics",
-  teacher: "Jane Smith",
+  teacher: teacher1.firstname+ teacher1.lastname, 
+  teacherProfile: teacher1.profile,
   previewImg: engineCourse,
   bookmark :false
 };
@@ -144,7 +146,8 @@ const course3 = {
   name: "Engine Mechanics",
   category : "mechanics",
   type: "private",
-  teacher: "Jane Smith",
+  teacher: teacher1.firstname+ teacher1.lastname, 
+  teacherProfile: teacher1.profile,
   previewImg: engineCourse,
   bookmark :true
 
@@ -155,7 +158,8 @@ const course4 = {
   name: "Engine Mechanics",
   category : "mechanics",
   type: "private",
-  teacher: "Jane Smith",
+  teacher: teacher1.firstname+ teacher1.lastname, 
+  teacherProfile: teacher1.profile,
   previewImg: engineCourse,
   bookmark :true
 
@@ -216,7 +220,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'courses',
-        element: <Courses courses={[course1 ,course2 , course1 , course2]} user={student2} />,
+        element: <Courses courses={[course1 ,course2 , course2 , course1, course2 , course1 , course2 , course1 , course2]} user={student2} />,
       },
       {
         path: 'groups',
@@ -265,6 +269,10 @@ const router = createBrowserRouter([
       {
         path: 'create-group',
         element: <CreateGroup />,
+      },
+      {
+        path: 'test',
+        element: <Test />,
       },
     ],
   },

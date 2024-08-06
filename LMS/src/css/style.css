@@ -9295,13 +9295,17 @@ textarea.form-control-lg {
   box-sizing: border-box; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  color: #000000; }
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: .5px;
+  color: #000000;
+  background-color: #ffffff !important; }
   body .underline {
     text-decoration: underline !important; }
   body a, body a:hover {
     text-decoration: none !important;
     color: inherit !important; }
+  body .card {
+    background-color: #ffffff; }
 
 #sidebar {
   min-height: 100vh;
@@ -9310,7 +9314,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   position: fixed;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: rgba(0, 0, 0, 0.616); }
   #sidebar:hover {
     max-width: 250px;
@@ -9322,7 +9326,7 @@ body {
     background: linear-gradient(45deg, #6a11cb, #9f25fc);
     border-radius: 10px; }
     #sidebar .current-link svg {
-      background-color: #FFFFFF; }
+      background-color: #ffffff; }
   #sidebar .logo-link .nav-link .logo-text {
     font-size: 1.3em;
     font-weight: 900;
@@ -9343,7 +9347,7 @@ body {
       text-decoration: none;
       transition: 0.3s; }
       #sidebar ul.components li a i, #sidebar ul.components li a svg {
-        border: 1px solid #FFFFFF;
+        border: 1px solid #ffffff;
         padding: 5px;
         border-radius: 4px;
         margin-right: 15px;
@@ -9364,7 +9368,7 @@ body {
     margin-left: 250px;
     /* Same as the max-width on hover */ }
   .content .user-menu a, .content .user-menu li {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     /* Initial background color */
     transition: background-color 0.5s ease-in-out;
     /* Transition property */ }
@@ -9388,7 +9392,7 @@ body {
 
 .btn-purple:hover {
   background-color: #e11eff90;
-  color: #FFFFFF; }
+  color: #ffffff; }
 
 .text-muted {
   color: #6c757d !important; }
@@ -9418,7 +9422,7 @@ body {
       margin-bottom: 1rem; }
       .container .sign-in-form .form-group .form-control, .container .sign-up-form .form-group .form-control {
         padding: 0.75rem;
-        border: 1px solid #ced4da;
+        border: 1px solid #a1a099 0;
         border-radius: 5px;
         transition: border-color 0.3s ease; }
         .container .sign-in-form .form-group .form-control:focus, .container .sign-up-form .form-group .form-control:focus {
@@ -9429,7 +9433,7 @@ body {
     padding: 10px 30px;
     margin-top: 20px;
     background: linear-gradient(45deg, #6a11cb, #9f25fc);
-    color: white;
+    color: #ffffff;
     text-align: center;
     text-decoration: none;
     border-radius: 50px;
@@ -9488,7 +9492,7 @@ body {
       width: 30px; } }
 
 #userCollapse a {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #000000 !important; }
 
 @media (max-width: 768px) {
@@ -9510,7 +9514,7 @@ body {
   padding: 10px;
   margin-top: 5px;
   background: linear-gradient(45deg, #6a11cb, #9f25fc);
-  color: white;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
   border-radius: 50px;
@@ -9530,7 +9534,7 @@ body {
   padding: 10px;
   margin-top: 5px;
   background: linear-gradient(45deg, #40ff00, #11500d);
-  color: white;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
   border-radius: 50px;
@@ -9545,19 +9549,52 @@ body {
     background-position: 100% 0;
     box-shadow: 0 15px 30px rgba(46, 232, 13, 0.5), 0 25px 50px rgba(106, 255, 6, 0.3); }
 
+.loadMoreButton {
+  padding: 8px 5px;
+  max-width: 120px;
+  color: #ffffff !important;
+  text-align: center;
+  background-color: #2b52ff !important;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: .9em; }
+  .loadMoreButton:hover {
+    background-color: rgba(24, 46, 145, 0.902) !important;
+    cursor: pointer; }
+
+.borderButton {
+  padding: 8px 5px;
+  max-width: 120px;
+  color: #2b52ff !important;
+  text-align: center;
+  border: 1px solid #2b52ff !important;
+  background-color: inherit !important;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: .9em; }
+  .borderButton:hover {
+    background-color: rgba(43, 82, 255, 0.155) !important;
+    cursor: pointer; }
+    .borderButton:hover a {
+      text-decoration: underline !important; }
+
+.blue-button {
+  color: #2b52ff !important;
+  border-bottom: 1px solid #2b52ff !important; }
+
 .footer {
   font-size: 0.7em;
   position: fixed;
   bottom: 0px;
   width: inherit;
   text-align: center;
-  background-color: white; }
+  background-color: #ffffff; }
 
 .course-card {
   padding: 10px; }
   .course-card img {
     width: 100%;
-    height: 150px;
+    height: 120px;
     object-fit: cover; }
   .course-card .teacher-name, .course-card .course-name {
     font-size: .8em;
@@ -9604,7 +9641,7 @@ body {
   padding: 10px;
   position: absolute;
   background: #1f1f1f;
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: capitalize;
   font-family: 'Roboto', sans-serif;
   display: none;
@@ -9632,6 +9669,26 @@ body {
       border-radius: inherit;
       color: inherit; }
 
+.course-offcanvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  /* Adjust the width as needed */
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  visibility: hidden; }
+
+.course-offcanvas.show {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible; }
+
 .course-list {
   font-size: .9em; }
   .course-list .course-list-columns {
@@ -9645,11 +9702,16 @@ body {
     /* X-offset Y-offset Blur-radius Color */ }
   .course-list .couse-head {
     height: 40px !important; }
-  .course-list .course, .course-list .course a {
+  .course-list .course {
     text-decoration: none;
     color: rgba(66, 66, 66, 0.541); }
-    .course-list .course:hover, .course-list .course a:hover {
+    .course-list .course:hover {
       color: #00000086; }
+    .course-list .course a {
+      color: #2b52ff !important;
+      border-bottom: 1px solid #2b52ff !important; }
+      .course-list .course a:hover {
+        color: rgba(24, 46, 145, 0.902) !important; }
   .course-list .course .row img {
     width: 150px;
     max-height: 80px;
@@ -9704,15 +9766,15 @@ body {
     height: 30px; }
   .group-chat .group-chat-head .group-name {
     font-weight: 700;
-    color: #FFFFFF; }
+    color: #ffffff; }
   .group-chat .group-chat-head .group-last-msg-time {
     margin-top: 8px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: .8em;
     text-transform: uppercase; }
   .group-chat .group-chat-head .group-last-msg {
     font-size: .8em;
-    color: #FFFFFF; }
+    color: #ffffff; }
 
 .group-chat .group-chat-msgs {
   padding: 10px;
@@ -9734,7 +9796,7 @@ body {
           border-radius: 15px 15px 0 15px;
           background: linear-gradient(45deg, #6a11cb, #9f25fc);
           background-size: 200%;
-          color: #FFFFFF;
+          color: #ffffff;
           margin-left: auto; }
           .group-chat .group-chat-msgs .msgs-pack.current-user .msg-content .user-msg .msg-time {
             color: #c8c7bc 0 !important; }
@@ -9884,8 +9946,8 @@ body {
   width: auto; }
 
 .sign-up-body .carousel-controls button {
-  background-color: white;
-  color: black;
+  background-color: #ffffff;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
@@ -9922,7 +9984,7 @@ body {
     width: 100%;
     max-width: 500px;
     border-radius: 15px;
-    background: white; }
+    background: #ffffff; }
   .make-course-up-body .course-form .form-group,
   .make-course-up-body .file-upload-form .form-group,
   .make-course-up-body .more-assets-form .form-group,

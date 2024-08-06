@@ -2,13 +2,19 @@
     box-sizing: border-box;
 }
 body{
-    font-family: 'Montserrat', sans-serif;
+    //font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: .5px;
     color: $colour-black;
+    background-color: $colour-white !important;
     .underline{
         text-decoration: underline !important;
     }
     a, a:hover{
         text-decoration: none !important;
         color: inherit !important;
+    }
+    .card{
+        background-color: $colour-white;
     }
 }

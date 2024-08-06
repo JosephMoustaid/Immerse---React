@@ -25,7 +25,10 @@ function CourseCard(props) {
     return (
         <div className="course-card rounded shadow small-scale-on-hover">
             <img className="rounded" src={props.previewImg} alt="course preview" />
-            <h5 className="teacher-name mt-2">{props.teacher}</h5>
+            <div className="d-flex align-items-start mt-2">
+                <img src={props.teacherProfile} style={{width:"25px" , height:"25px"}} className='rounded-circlre shadow-sm' alt="teacher profile" />
+                <h5 className="teacher-name mt-1 ms-2">{props.teacher}</h5>
+            </div>
             <h6 className="course-name">{props.type} Course : {props.name}</h6>
             <p>Course</p>
             <div className='d-flex justify-content-end'>
@@ -44,6 +47,7 @@ CourseCard.propTypes = {
     id: PropTypes.number, 
     name: PropTypes.string, 
     teacher: PropTypes.string, 
+    teacherProfile : PropTypes.string,
     type: PropTypes.string, 
     previewImg: PropTypes.string,
     bookmark: PropTypes.bool
@@ -53,6 +57,7 @@ CourseCard.defaultProps = {
     id: 0, 
     name: "course name", 
     teacher: "teacher name", 
+    teacherProfile : "profile img",
     type: "course type", 
     previewImg: "course preview image src",
     bookmark: false 

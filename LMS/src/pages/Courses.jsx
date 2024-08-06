@@ -7,13 +7,28 @@ import OffCanvasCourse from '../components/OffCanvasCourse.jsx';
 function Courses({ courses }) {
     const [showOffCanvas, setShowOffCanvas] = useState(false);
     const [currentCourse, setCurrentCourse] = useState(null);
+    const [visibleCourses, setVisibleCourses] = useState(4);
+    const [expanded, setExpanded] = useState(false);
 
     const handleShow = (course) => {
         setCurrentCourse(course);
         setShowOffCanvas(true);
     };
 
-    const handleClose = () => setShowOffCanvas(false);
+    const handleClose = () => {
+        setShowOffCanvas(false);
+        setCurrentCourse(null);
+    };
+
+    const handleLoadMore = (left) => {
+        if (expanded) {
+            setVisibleCourses(4);
+            setExpanded(false);
+        } else {
+            setVisibleCourses(courses.length);
+            setExpanded(true);
+        }
+    };
 
     useEffect(() => {
         const exploreBtn = document.querySelector(".explore-button");
@@ -24,73 +39,93 @@ function Courses({ courses }) {
     }, []);
 
     return (
-        <div className="course-list mt-4">
+        <div className="course-list mt-4 px-md-5">
             <div className="d-flex justify-content-end">
-                <a href="make-course" className='custom-button2 px-3 text-light'>make a course</a>
+                <a href="make-course" className='custom-button2 px-3 text-light'>Make a course</a>
             </div>
             <h4 className='underline mt-2 mb-3'>This is how the courses will be displayed to teachers</h4>
-            <p className='underline mt-2 mb-3'>the teachers will have the courses they created in here , if they wanna browse public courses , thewy simply search</p>
-            <div   className="course-list-columns course-head" style={{height : "30px"}}>
-                <div   className="row">
-                    <div   className="col-12 col-md-2">Course of</div>
-                    <div   className="col-12 col-md-2">Field</div>
-                    <div   className="col-12 col-md-3">Privacy</div>
-                    <div   className="col-12 col-md-3">Actions</div>
+            <p className='underline mt-2 mb-3'>The teachers will have the courses they created here. If they want to browse public courses, they simply search.</p>
+            <div className="course-list-columns course-head" style={{ height: "30px" }}>
+                <div className="row">
+                    <div className="col-12 col-md-2">Course of</div>
+                    <div className="col-12 col-md-2">Field</div>
+                    <div className="col-12 col-md-3">Privacy</div>
+                    <div className="col-12 col-md-3">Actions</div>
                 </div>
             </div>
-            {courses.map((course) => (
-                <a href="">
-                    <div key={course.id}   className="course rounded">
-                    <div   className="row">
-                        <div   className="col-12 col-md-2">
-                            <img   className="rounded" src={course.previewImg} alt={`Preview of ${course.title}`} />
+            {courses.length > 0 ? 
+                courses.map((course) => (
+                    <div key={course.id} className="course rounded">
+                        <div className="row">
+                            <div className="col-12 col-md-2">
+                                <img className="rounded" src={course.previewImg} alt={`Preview of ${course.title}`} />
+                            </div>
+                            <div className="col-12 col-md-2">{course.name}</div>
+                            <div className="col-12 col-md-2">{course.type}</div>
+                            <div className="col-12 col-md-3"><a href="#" onClick={() => handleShow(course)} role='button' className='blue-button'>View</a></div>
+                            <div className="col-12 col-md-3"><a href={course.editLink} role='button' className='blue-button'>Edit</a></div>
                         </div>
-                        <div   className="col-12 col-md-2">{course.name}</div>
-                        <div   className="col-12 col-md-2">{course.type}</div>
-                        <div   className="col-12 col-md-3"><a href="#" onClick={handleShow} className='underline'>View</a></div>
-                        <div   className="col-12 col-md-3"><a href={course.editLink} className='underline'>Edit</a></div>
                     </div>
-                    <OffCanvasCourse show={showOffCanvas} onClose={handleClose} course={course} />
-                </div>
-                </a>
-                
-            ))}
-            <h4 className='underline mt-2 mb-3'>This is how the courses will be displayed to students so they can browse</h4>
-            <div className="dashboard">
-                <div   className="mt-5 mb-5" id='topPicks'>
-                    <h4   className="mt-2">Courses </h4>
-                    <div   className="row">
-                        <h4   className="mt-2">Software </h4>
+                ))
+            : ""}
+            
+            <h4 className='underline mt-2 mb-3 px-md-5'>This is how the courses will be displayed to students so they can browse</h4>
+            <div className="dashboard px-md-5">
+                <div className="mt-5 mb-5" id='topPicks'>
+                    <h4 className="mt-2">Courses</h4>
+                    <div className="row">
+                        <h4 className="mt-2">Software</h4>
                         {courses.length > 0 ? (
-                        courses.map((course, index) => (
-                            course.category == "software" ? 
-                            <div   className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
-                                <a onClick={handleShow} href="#"><CourseCard {...course} /></a>
-                                <OffCanvasCourse show={showOffCanvas} onClose={handleClose} course={course} />
-                            </div>
-                            : ""
-                        ))
+                            courses.filter(course => course.category === "software")
+                                .slice(0, visibleCourses)
+                                .map((course, index) => (
+                                    <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
+                                        <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
+                                    </div>
+                                ))
                         ) : (
-                        <p>No courses available.</p>
+                            <p>No courses available.</p>
                         )}
-                        <h4   className="mt-2">Mechanics </h4>
+                        <div className="col-12"></div>
+
+                        <div className="loadMoreButton ms-md-3">
+                            <a onClick={handleLoadMore} >
+                                {expanded ? 'Display Less' : 'Display 4 More'}
+                            </a>
+                        </div>
+                        <div className="borderButton ms-1">
+                            <a href="">See All</a>
+                            <i className="bi bi-arrow-right ms-2"></i>
+                        </div> 
+                        
+                        <h4 className="mt-5">Mechanics</h4>
                         {courses.length > 0 ? (
-                        courses.map((course, index) => (
-                            course.category == "mechanics" ? 
-                            <div   className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
-                                <a onClick={handleShow} href="#"><CourseCard {...course} /></a>
-                                <OffCanvasCourse show={showOffCanvas} onClose={handleClose} course={course} />
-                            </div>
-                            : ""
-                        ))
+                            courses.filter(course => course.category === "mechanics")
+                                .slice(0, visibleCourses)
+                                .map((course, index) => (
+                                    <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
+                                        <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
+                                    </div>
+                                ))
                         ) : (
-                        <p>No courses available.</p>
+                            <p>No courses available.</p>
                         )}
+                        <div className="col-12"></div>
+                        <div className="loadMoreButton ms-md-3">
+                            <a onClick={handleLoadMore} >
+                                {expanded ? 'Display Less' : 'Display 4 More'}
+                            </a>
+                        </div>
+                        <div className="borderButton ms-2">
+                            <a href="">See All</a>
+                            <i className="bi bi-arrow-right ms-1"></i>
+                        </div> 
                     </div>
                 </div>
             </div>
-            
-        
+            {currentCourse && (
+                <OffCanvasCourse show={showOffCanvas} onClose={handleClose} course={currentCourse} id={`offcanvasCourse${currentCourse.id}`} />
+            )}
         </div>
     );
 }
@@ -100,4 +135,3 @@ Courses.propTypes = {
 }
 
 export default Courses;
-
