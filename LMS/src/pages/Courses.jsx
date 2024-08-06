@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CourseCard from '../components/CourseCard.jsx';
 import { courseShape } from '../types/types.js';
@@ -7,8 +7,10 @@ import OffCanvasCourse from '../components/OffCanvasCourse.jsx';
 function Courses({ courses }) {
     const [showOffCanvas, setShowOffCanvas] = useState(false);
     const [currentCourse, setCurrentCourse] = useState(null);
-    const [visibleCourses, setVisibleCourses] = useState(4);
-    const [expanded, setExpanded] = useState(false);
+    const [visibleSoftwareCourses, setVisibleSoftwareCourses] = useState(4);
+    const [visibleMechanicsCourses, setVisibleMechanicsCourses] = useState(4);
+    const [expandedSoftware, setExpandedSoftware] = useState(false);
+    const [expandedMechanics, setExpandedMechanics] = useState(false);
 
     const handleShow = (course) => {
         setCurrentCourse(course);
@@ -20,13 +22,25 @@ function Courses({ courses }) {
         setCurrentCourse(null);
     };
 
-    const handleLoadMore = (left) => {
-        if (expanded) {
-            setVisibleCourses(4);
-            setExpanded(false);
-        } else {
-            setVisibleCourses(courses.length);
-            setExpanded(true);
+    const handleLoadMore = (category) => {
+        if (category === "software") {
+            const remainingCourses = courses.filter(course => course.category === "software").length - visibleSoftwareCourses;
+            if (expandedSoftware) {
+                setVisibleSoftwareCourses(4);
+                setExpandedSoftware(false);
+            } else {
+                setVisibleSoftwareCourses(prev => prev + Math.min(remainingCourses, 8));
+                setExpandedSoftware(true);
+            }
+        } else if (category === "mechanics") {
+            const remainingCourses = courses.filter(course => course.category === "mechanics").length - visibleMechanicsCourses;
+            if (expandedMechanics) {
+                setVisibleMechanicsCourses(4);
+                setExpandedMechanics(false);
+            } else {
+                setVisibleMechanicsCourses(prev => prev + Math.min(remainingCourses, 8));
+                setExpandedMechanics(true);
+            }
         }
     };
 
@@ -77,7 +91,7 @@ function Courses({ courses }) {
                         <h4 className="mt-2">Software</h4>
                         {courses.length > 0 ? (
                             courses.filter(course => course.category === "software")
-                                .slice(0, visibleCourses)
+                                .slice(0, visibleSoftwareCourses)
                                 .map((course, index) => (
                                     <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
                                         <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
@@ -88,11 +102,13 @@ function Courses({ courses }) {
                         )}
                         <div className="col-12"></div>
 
-                        <div className="loadMoreButton ms-md-3">
-                            <a onClick={handleLoadMore} >
-                                {expanded ? 'Display Less' : 'Display 4 More'}
-                            </a>
-                        </div>
+                        {courses.filter(course => course.category === "software").length > visibleSoftwareCourses && (
+                            <div className="loadMoreButton ms-md-3">
+                                <a onClick={() => handleLoadMore("software")}>
+                                    {expandedSoftware ? 'Display Less' : `Display ${Math.min(courses.filter(course => course.category === "software").length - visibleSoftwareCourses, 8)} More`}
+                                </a>
+                            </div>
+                        )}
                         <div className="borderButton ms-1">
                             <a href="">See All</a>
                             <i className="bi bi-arrow-right ms-2"></i>
@@ -101,7 +117,7 @@ function Courses({ courses }) {
                         <h4 className="mt-5">Mechanics</h4>
                         {courses.length > 0 ? (
                             courses.filter(course => course.category === "mechanics")
-                                .slice(0, visibleCourses)
+                                .slice(0, visibleMechanicsCourses)
                                 .map((course, index) => (
                                     <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
                                         <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
@@ -111,11 +127,13 @@ function Courses({ courses }) {
                             <p>No courses available.</p>
                         )}
                         <div className="col-12"></div>
-                        <div className="loadMoreButton ms-md-3">
-                            <a onClick={handleLoadMore} >
-                                {expanded ? 'Display Less' : 'Display 4 More'}
-                            </a>
-                        </div>
+                        {courses.filter(course => course.category === "mechanics").length > visibleMechanicsCourses && (
+                            <div className="loadMoreButton ms-md-3">
+                                <a onClick={() => handleLoadMore("mechanics")}>
+                                    {expandedMechanics ? 'Display Less' : `Display ${Math.min(courses.filter(course => course.category === "mechanics").length - visibleMechanicsCourses, 8)} More`}
+                                </a>
+                            </div>
+                        )}
                         <div className="borderButton ms-2">
                             <a href="">See All</a>
                             <i className="bi bi-arrow-right ms-1"></i>
