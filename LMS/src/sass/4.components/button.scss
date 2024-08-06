@@ -44,7 +44,7 @@
     }
 }
 .loadMoreButton{
-    padding: 8px 5px;
+    padding: 8px 5px ;
     max-width: 120px;
     color: $colour-white !important;
     text-align: center;
@@ -55,6 +55,13 @@
     &:hover{
         background-color: $colour-dark-blue !important;
         cursor: pointer;
+        color: $colour-white;
+    }
+}
+.loadMoreButton2{
+    padding: 8px 10px;
+    &:hover{
+        color: $colour-white !important;
     }
 }
 .borderButton{

@@ -212,11 +212,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Dashboard enrolledCourses={[course1 , course2, course3]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]}  user={student2}/>,
+        element: <Dashboard enrolledCourses={[course1 , course2, course3,course4 , course2 , course4]} bookmarksCourses={[course3, course4,course4 , course2 , course4]} recommendedCourses={[course1 , course2,course4 , course2 , course4,course4 , course2 , course4]}  assignments={[assignement1 , assignement2]}  user={student2}/>,
       },
       {
         path: 'dashboard',
-        element: <Dashboard enrolledCourses={[course1 , course2,course3]} bookmarksCourses={[course3, course4]} recommendedCourses={[course1 , course2]}  assignments={[assignement1 , assignement2]} user={student2}/>,
+        element: <Dashboard enrolledCourses={[course1 , course2,course3,course4 , course2 , course4]} bookmarksCourses={[course3, course4,course4 , course2 , course4]} recommendedCourses={[course1 , course2,course4 , course2 , course4,course4 , course2 , course4]}  assignments={[assignement1 , assignement2]} user={student2}/>,
       },
       {
         path: 'courses',

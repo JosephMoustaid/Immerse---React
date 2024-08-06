@@ -9560,7 +9560,13 @@ body {
   font-size: .9em; }
   .loadMoreButton:hover {
     background-color: rgba(24, 46, 145, 0.902) !important;
-    cursor: pointer; }
+    cursor: pointer;
+    color: #ffffff; }
+
+.loadMoreButton2 {
+  padding: 8px 10px; }
+  .loadMoreButton2:hover {
+    color: #ffffff !important; }
 
 .borderButton {
   padding: 8px 5px;
