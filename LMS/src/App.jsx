@@ -47,7 +47,7 @@ function App(props) {
 
   const location = useLocation();
   const currentLink = location.pathname.split('/')[1] || 'dashboard'; // Default to 'dashboard' if path is '/'
-  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course' || location.pathname === '/create-group' || location.pathname === '/make-quiz';
+  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course' || location.pathname === '/create-group' ;// || location.pathname === '/make-quiz';
 
   useEffect(() => {
     if (noNavFooter) {

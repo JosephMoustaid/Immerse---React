@@ -1,8 +1,7 @@
 function Footer(){
     return (
         <>
-            <footer   className="footer mt-1" >
-                <br />
+            <footer   className="footer pt-0" >
                 <hr   className="px-4"/>
                 <div   className="text-center">
                     All rights reserved &copy; 2024

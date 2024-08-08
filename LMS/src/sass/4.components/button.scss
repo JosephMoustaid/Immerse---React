@@ -86,3 +86,14 @@
     color: $colour-blue !important;
     border-bottom: 1px solid $colour-blue !important;
 }
+.remove-button{
+    background-color: $colour-red;
+    border: none;
+    border-radius: 5px;
+    transition: scale .5s smooth;
+    color: $colour-white;
+    &:hover{
+        scale: 1.1;
+        
+    }
+}
