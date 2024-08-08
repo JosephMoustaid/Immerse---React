@@ -19,6 +19,7 @@ const UserMenu = (props) => {
         <div className="card card-body p-2 shadow-lg">
           <h2 className="fw-normal p-3 fs-5">
             Hi<span> {props.firstname} !</span>
+            <p>{props.email}</p>
           </h2>
           <hr className="m-1" />
           <nav className="p-0">

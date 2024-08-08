@@ -30,11 +30,10 @@ import SignIn from './pages/SignIn.jsx';
 import GroupChat from './pages/GroupChat.jsx';
 import Notifications from './pages/Notifications.jsx';
 import MakeCourse from './pages/MakeCourse.jsx';
-import Help from "./pages/Help.jsx"
-import CreateGroup from "./pages/CreateGroup.jsx"
-import Test from "./pages/Test.jsx"
-
-
+import Help from "./pages/Help.jsx";
+import CreateGroup from "./pages/CreateGroup.jsx";
+import Test from "./pages/Test.jsx";
+import MakeQuiz from "./pages/MakeQuiz.jsx"
 // this is just for testing
 const settings1 ={
   id: 1,
@@ -273,6 +272,10 @@ const router = createBrowserRouter([
       {
         path: 'test',
         element: <Test />,
+      },
+      {
+        path: 'make-quiz',
+        element: <MakeQuiz />,
       },
     ],
   },

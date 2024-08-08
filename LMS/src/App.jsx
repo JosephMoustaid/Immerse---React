@@ -47,7 +47,7 @@ function App(props) {
 
   const location = useLocation();
   const currentLink = location.pathname.split('/')[1] || 'dashboard'; // Default to 'dashboard' if path is '/'
-  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course' || location.pathname === '/create-group';
+  const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course' || location.pathname === '/create-group' || location.pathname === '/make-quiz';
 
   useEffect(() => {
     if (noNavFooter) {
@@ -72,6 +72,9 @@ function App(props) {
         <div className="content with-nav-footer">
           <div className="d-flex flex-row mb-3 justify-content-between">
             <div className="search-box d-flex flex-row mt-3">
+              <form action="./search" method="post">
+                <input type="text"  placeholder="Search" ref={inputRef} id="search" />
+              </form>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="15"
@@ -82,9 +85,6 @@ function App(props) {
               >
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
               </svg>
-              <form action="./search" method="post">
-                <input type="text" placeholder="Search" ref={inputRef} id="search" />
-              </form>
             </div>
             <div className="p-2">
               <a
@@ -123,6 +123,7 @@ function App(props) {
                 <div className="card card-body p-2 shadow-lg user-menu">
                   <h2 className="fw-normal p-3 fs-5">
                     Hi<span> {props.user.firstname} !</span>
+                    <p className='text-secondary fs-6'><small> {props.user.email} </small></p>
                   </h2>
                   <hr className="m-1" />
                   <nav className="p-0">

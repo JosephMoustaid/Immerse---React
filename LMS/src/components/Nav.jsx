@@ -6,9 +6,9 @@ function Nav(props){
              <nav id="sidebar">
                 <ul   className="list-unstyled my-3 components">
                     <li   className="logo-link mb-3">
-                        <a href="./index"   className="nav-link ">
+                        <a href="./dashboard"   className="nav-link ">
                             <img src={logo} width="25" height="25" alt="logo" />
-                            <span   className="logo-text ms-4 fs-6">Immerse</span>
+                            <span   className="logo-text ms-4 ps-3 fs-5">Immerse</span>
                         </a>
                     </li>
                     <li>

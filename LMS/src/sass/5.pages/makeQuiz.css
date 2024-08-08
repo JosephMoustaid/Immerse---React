@@ -1,0 +1,45 @@
+.make-quiz .review-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.make-quiz .review-form .form-group {
+  margin-bottom: 1rem;
+}
+.make-quiz .review-form .question-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+}
+.make-quiz .review-form .question-container .question-item {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.make-quiz .review-form .question-container .question-item .question-text {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.make-quiz .review-form .question-container .question-item .answer-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.make-quiz .review-form .question-container .question-item .answer-list .answer-item {
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+.make-quiz .review-form .question-container .question-item .answer-list .answer-item.correct {
+  font-weight: bold;
+}
+.make-quiz .review-form .button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 1rem;
+}
+.make-quiz .review-form .button-group .btn {
+  flex: 1;
+  margin: 0 0.5rem;
+}/*# sourceMappingURL=makeQuiz.css.map */

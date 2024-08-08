@@ -98,7 +98,7 @@ function Courses({ courses }) {
                                     </div>
                                 ))
                         ) : (
-                            <p>No courses available.</p>
+                            <p>No courses available yet.</p>
                         )}
                         <div className="col-12"></div>
 
@@ -124,7 +124,7 @@ function Courses({ courses }) {
                                     </div>
                                 ))
                         ) : (
-                            <p>No courses available.</p>
+                            <p>No courses available yet.</p>
                         )}
                         <div className="col-12"></div>
                         {courses.filter(course => course.category === "mechanics").length > visibleMechanicsCourses && (

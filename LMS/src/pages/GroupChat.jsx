@@ -2,8 +2,15 @@ import { groupShape } from '../types/types.js';
 import PropTypes from 'prop-types'
 import defaultGroupProfile from '../assets/group-profiles/group.png'
 import defaultUserProfile from '../assets/group-profiles/user.avif'
-
+import { useEffect } from 'react';
 function GroupChat({ group } , {user}) {
+
+    useEffect(() => {
+        let footer = document.querySelector("footer");
+        if (footer) {
+            footer.style.display = "none";
+        }
+      }, []);
     return (
         <div   className="group-chat mt-2 w-100">
             <div   className="group-chat-head rounded">

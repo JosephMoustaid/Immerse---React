@@ -1,0 +1,57 @@
+.make-quiz{
+    .review-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      
+        .form-group {
+          margin-bottom: 1rem;
+        }
+      
+        .question-container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          max-width: 800px;
+      
+          .question-item {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+      
+            .question-text {
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+            }
+      
+            .answer-list {
+              display: flex;
+              flex-wrap: wrap;
+      
+              .answer-item {
+                margin-right: 1rem;
+                font-size: 1rem;
+      
+                &.correct {
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+        }
+      
+        .button-group {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          max-width: 300px;
+          margin-top: 1rem;
+      
+          .btn {
+            flex: 1;
+            margin: 0 0.5rem;
+          }
+        }
+      }
+      
+}

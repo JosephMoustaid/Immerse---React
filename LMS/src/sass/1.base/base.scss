@@ -17,4 +17,7 @@ body{
     .card{
         background-color: $colour-white;
     }
+    ul , ol{
+        list-style: none;
+    }
 }
