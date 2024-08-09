@@ -33,7 +33,8 @@ import MakeCourse from './pages/MakeCourse.jsx';
 import Help from "./pages/Help.jsx";
 import CreateGroup from "./pages/CreateGroup.jsx";
 import Test from "./pages/Test.jsx";
-import MakeQuiz from "./pages/MakeQuiz.jsx"
+import MakeQuiz from "./pages/MakeQuiz.jsx";
+import Quiz from "./pages/Quiz.jsx";
 // this is just for testing
 const settings1 ={
   id: 1,
@@ -198,6 +199,166 @@ const assignement2 ={
   percentage: 91,
   passed: true
 };
+const quizQuestions =[
+  {
+    questionText: 'What is the primary microcontroller used in the Arduino Uno?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'ATmega328P', isCorrect: true },
+      { text: 'ATmega2560', isCorrect: false },
+      { text: 'ATtiny85', isCorrect: false },
+      { text: 'ATmega32', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'Which programming language is primarily used to program Arduino boards?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'Python', isCorrect: false },
+      { text: 'JavaScript', isCorrect: false },
+      { text: 'C/C++', isCorrect: true },
+      { text: 'Java', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the purpose of the "void setup()" function in an Arduino sketch?',
+    helperText: 'This function is used to initialize settings and configure the hardware.',
+    answerOptions: [
+      { text: 'To set up the hardware and initialize variables', isCorrect: true },
+      { text: 'To loop continuously', isCorrect: false },
+      { text: 'To handle interrupts', isCorrect: false },
+      { text: 'To terminate the program', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'Which pin on the Arduino Uno is used to send digital output?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'Analog pin A0', isCorrect: false },
+      { text: 'Digital pin 13', isCorrect: true },
+      { text: 'Power pin 5V', isCorrect: false },
+      { text: 'Ground pin GND', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the function of the "delay()" function in Arduino programming?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'To create a pause in the execution', isCorrect: true },
+      { text: 'To handle interrupts', isCorrect: false },
+      { text: 'To initialize hardware', isCorrect: false },
+      { text: 'To read sensor data', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'Which of the following is a common sensor used with Arduino?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'BMP180', isCorrect: true },
+      { text: 'Wi-Fi module', isCorrect: false },
+      { text: 'Bluetooth module', isCorrect: false },
+      { text: 'GPS module', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the default baud rate for serial communication in Arduino?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: '9600', isCorrect: true },
+      { text: '115200', isCorrect: false },
+      { text: '57600', isCorrect: false },
+      { text: '38400', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'Which command is used to read an analog input in Arduino?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'digitalRead()', isCorrect: false },
+      { text: 'analogWrite()', isCorrect: false },
+      { text: 'analogRead()', isCorrect: true },
+      { text: 'digitalWrite()', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What does the "LED_BUILTIN" constant refer to in an Arduino sketch?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'The internal LED connected to pin 13', isCorrect: true },
+      { text: 'The external LED connected to an analog pin', isCorrect: false },
+      { text: 'The LED connected to a digital pin', isCorrect: false },
+      { text: 'The LED on the power supply', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'Which component is used to control the flow of current in an Arduino circuit?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'Resistor', isCorrect: true },
+      { text: 'Capacitor', isCorrect: false },
+      { text: 'Transistor', isCorrect: false },
+      { text: 'Diode', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the main purpose of the Arduino IDE?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'To write and upload code to Arduino boards', isCorrect: true },
+      { text: 'To design hardware schematics', isCorrect: false },
+      { text: 'To simulate Arduino projects', isCorrect: false },
+      { text: 'To manage project documentation', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the main purpose of the Arduino IDE?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'To write and upload code to Arduino boards', isCorrect: true },
+      { text: 'To design hardware schematics', isCorrect: false },
+      { text: 'To simulate Arduino projects', isCorrect: false },
+      { text: 'To manage project documentation', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the main purpose of the Arduino IDE?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'To write and upload code to Arduino boards', isCorrect: true },
+      { text: 'To design hardware schematics', isCorrect: false },
+      { text: 'To simulate Arduino projects', isCorrect: false },
+      { text: 'To manage project documentation', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the main purpose of the Arduino IDE?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'To write and upload code to Arduino boards', isCorrect: true },
+      { text: 'To design hardware schematics', isCorrect: false },
+      { text: 'To simulate Arduino projects', isCorrect: false },
+      { text: 'To manage project documentation', isCorrect: false }
+    ]
+  },
+  {
+    questionText: 'What is the main purpose of the Arduino IDE?',
+    helperText: 'Choose one',
+    answerOptions: [
+      { text: 'To write and upload code to Arduino boards', isCorrect: true },
+      { text: 'To design hardware schematics', isCorrect: false },
+      { text: 'To simulate Arduino projects', isCorrect: false },
+      { text: 'To manage project documentation', isCorrect: false }
+    ]
+  }
+];
+const quiz = {
+  title : "Assigngment 1" , 
+  ratekeTime : "8 hours" ,
+  description : "this is the quiz description" , 
+  attemptsAllowed : 1,
+  questions :  quizQuestions
+}
+
 
 const AppWrapper = (props) => {
   const location = useLocation();
@@ -276,6 +437,10 @@ const router = createBrowserRouter([
       {
         path: 'make-quiz',
         element: <MakeQuiz />,
+      },
+      {
+        path: 'quiz',
+        element: <Quiz quiz={quiz} />,
       },
     ],
   },

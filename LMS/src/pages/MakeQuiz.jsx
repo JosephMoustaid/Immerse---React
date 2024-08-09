@@ -84,19 +84,20 @@ function MakeQuiz() {
     updatedQuestions[questionIndex][field] = value;
     setQuestions(updatedQuestions);
   };
-  const handleAddOption = () => {
+  const handleAddOption = (questionIndex) => {
     const updatedQuestions = [...questions];
-    if (updatedQuestions[currentQuestionIndex].answerOptions.length < 10) {
-      updatedQuestions[currentQuestionIndex].answerOptions.push({ text: '', isCorrect: false });
+    if (updatedQuestions[questionIndex].answerOptions.length < 10) {
+      updatedQuestions[questionIndex].answerOptions.push({ text: '', isCorrect: false });
       setQuestions(updatedQuestions);
     }
   };
 
-  const handleRemoveOption = (index) => {
+  const handleRemoveOption = (questionIndex, optionIndex) => {
     const updatedQuestions = [...questions];
-    updatedQuestions[currentQuestionIndex].answerOptions = updatedQuestions[currentQuestionIndex].answerOptions.filter((_, i) => i !== index);
+    updatedQuestions[questionIndex].answerOptions = updatedQuestions[questionIndex].answerOptions.filter((_, i) => i !== optionIndex);
     setQuestions(updatedQuestions);
   };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -190,14 +191,14 @@ function MakeQuiz() {
             onChange={(e) => handleQuestionChange(index, e.target.value, 'helperText')}
             placeholder="Enter helper text (e.g., Choose all correct answers)"
           >
-            <option value="Choose all that match">Choose all the correct answers</option>
+            <option value="Choose all that match">Carefull , there are several correct answers</option>
             <option value="Choose one">Choose one</option>
           </select>
         </div>
         <div className="options-container">
           {question.answerOptions.map((option, optIndex) => (
             <div className="row mb-2" key={optIndex}>
-              <div className="col-auto d-flex align-items-center">
+              <div className="col-1 d-flex align-items-center">
                 <input
                   type="checkbox"
                   className="me-2"
@@ -205,7 +206,7 @@ function MakeQuiz() {
                   onChange={(e) => handleAnswerChange(index, optIndex, 'isCorrect', e.target.checked)}
                 />
               </div>
-              <div className="col">
+              <div className="col-8">
                 <input
                   type="text"
                   className="form-control"
@@ -216,16 +217,24 @@ function MakeQuiz() {
                 />
               </div>
               {question.answerOptions.length > 2 && (
-                <div className="col-auto d-flex align-items-center">
+                <div className="col-1 d-flex align-items-center ">
                   <button
                     type="button"
                     className="remove-button"
-                    onClick={() => handleRemoveOption(optIndex)}
+                    onClick={() => handleRemoveOption(index,optIndex)}
                   >
                     <i className="bi bi-dash"></i>
                   </button>
                 </div>
               )}
+              <div className="col-2 remove-option-block">
+               {(question.answerOptions[optIndex].isCorrect ? 
+                  <div className="correct-answer ms-2">
+                    <i class="bi bi-check-lg"></i> Correct 
+                  </div>
+                  :
+                "")}
+              </div>
             </div>
           ))}
           <div className="d-flex justify-content-start mt-3">
@@ -266,13 +275,17 @@ function MakeQuiz() {
             <p><strong>Attempts Allowed:</strong> {quizAttempts}</p>
             <div className="review-questions-container">
               {questions.map((q, index) => (
-                <div key={index} className="review-question">
+                <div key={index} className="review-question w-50 m-auto" >
                   <p className="question-text"><strong>Question {index + 1}:</strong> {q.questionText}</p>
                   {q.helperText && <p className="helper-text">{q.helperText}</p>}
                   <ul className="answer-options">
                     {q.answerOptions.map((option, i) => (
                       <li key={i}>
-                        {option.text} {option.isCorrect ? '(Correct)' : ''}
+                        {option.text} {option.isCorrect ? 
+                          <div className="correct-answer ms-2">
+                          <i class="bi bi-check-lg"></i> Correct 
+                        </div>
+                        : ''}
                       </li>
                     ))}
                   </ul>

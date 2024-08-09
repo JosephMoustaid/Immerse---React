@@ -9,7 +9,7 @@ $primary:white;
 @import "../sass/2.utils/variables.scss";
 @import "../sass/2.utils/scale-on-hover.scss";
 @import "../sass/2.utils/load-more.scss";
-
+@import "../sass/2.utils/correctAnswer.scss";
 // theme 
 @import "../sass/6.themes/themes.scss";
 // base
@@ -43,7 +43,7 @@ $primary:white;
 @import "../sass/5.pages/makeCourse.scss";
 @import "../sass/5.pages/create-group.scss";
 @import "../sass/5.pages/makeQuiz.scss";
-
+@import "../sass/5.pages/quiz.scss";
 
 
 

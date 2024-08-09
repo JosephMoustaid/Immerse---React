@@ -17,7 +17,7 @@ function Help() {
                             </h5>
                         </div>
 
-                        <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                        <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
                             <div className="card-body">
                                 To create a new course, navigate to the 'Make a new course' page from the main menu and fill out the required details.
                             </div>
@@ -51,8 +51,37 @@ function Help() {
                             </div>
                         </div>
                     </div>
+                    <div className="card">
+                        <div className="card-header" id="headingFour">
+                            <h5 className="mb-0">
+                                <button className="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    How can I contact support?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                            <div className="card-body">
+                                To contact support, click on the 'Help' button at the bottom of the page and fill out the contact form. Alternatively, you can email us at support@example.com.
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-header" id="headingFive">
+                            <h5 className="mb-0">
+                                <button className="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Where can I find the course materials?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" className="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                            <div className="card-body">
+                                Course materials are available in the 'Resources' section of each course. You can access them from the course dashboard.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+
 
             <section className="contact-section mb-5">
                 <h2>Contact Us</h2>
