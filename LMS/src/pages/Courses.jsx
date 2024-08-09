@@ -88,13 +88,13 @@ function Courses({ courses }) {
                 <div className="mt-5 mb-5" id='topPicks'>
                     <h4 className="mt-2">Courses</h4>
                     <div className="row">
-                        <h4 className="mt-2">Software</h4>
+                        <h4 className="mt-2" id='software'>Software</h4>
                         {courses.length > 0 ? (
                             courses.filter(course => course.category === "software")
                                 .slice(0, visibleSoftwareCourses)
                                 .map((course, index) => (
                                     <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
-                                        <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
+                                        <a onClick={() => handleShow(course)} href="#software"><CourseCard {...course} /></a>
                                     </div>
                                 ))
                         ) : (
@@ -114,13 +114,13 @@ function Courses({ courses }) {
                             <i className="bi bi-arrow-right ms-2"></i>
                         </div> 
                         
-                        <h4 className="mt-5">Mechanics</h4>
+                        <h4 className="mt-5" id='mechanics'> Mechanics</h4>
                         {courses.length > 0 ? (
                             courses.filter(course => course.category === "mechanics")
                                 .slice(0, visibleMechanicsCourses)
                                 .map((course, index) => (
                                     <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
-                                        <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
+                                        <a onClick={() => handleShow(course)} href="#mechanics"><CourseCard {...course} /></a>
                                     </div>
                                 ))
                         ) : (

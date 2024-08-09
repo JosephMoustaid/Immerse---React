@@ -12,7 +12,7 @@ function Help() {
                         <div className="card-header" id="headingOne">
                             <h5 className="mb-0">
                                 <button className="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How do I create a new course?
+                                    <i class="bi bi-caret-down-fill me-2"></i>How do I create a new course?
                                 </button>
                             </h5>
                         </div>
@@ -27,7 +27,7 @@ function Help() {
                         <div className="card-header" id="headingTwo">
                             <h5 className="mb-0">
                                 <button className="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How can I edit my profile?
+                                    <i class="bi bi-caret-down-fill me-2"/>How can I edit my profile?
                                 </button>
                             </h5>
                         </div>
@@ -41,7 +41,7 @@ function Help() {
                         <div className="card-header" id="headingThree">
                             <h5 className="mb-0">
                                 <button className="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    How do I reset my password?
+                                    <i class="bi bi-caret-down-fill me-2"/>How do I reset my password?
                                 </button>
                             </h5>
                         </div>
@@ -55,7 +55,7 @@ function Help() {
                         <div className="card-header" id="headingFour">
                             <h5 className="mb-0">
                                 <button className="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    How can I contact support?
+                                    <i class="bi bi-caret-down-fill me-2"/>How can I contact support?
                                 </button>
                             </h5>
                         </div>
@@ -69,7 +69,7 @@ function Help() {
                         <div className="card-header" id="headingFive">
                             <h5 className="mb-0">
                                 <button className="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    Where can I find the course materials?
+                                    <i class="bi bi-caret-down-fill me-2"/>Where can I find the course materials?
                                 </button>
                             </h5>
                         </div>

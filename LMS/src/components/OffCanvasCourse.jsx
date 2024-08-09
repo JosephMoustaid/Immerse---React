@@ -22,6 +22,11 @@ const OffCanvasCourse = ({ show, onClose, course, id }) => {
         <p><strong>Description:</strong> {course.description}</p>
         <p><strong>Privacy:</strong> {course.type}</p>
         <p><strong>Creator:</strong> <span className='underline'>{course.teacher}</span></p>
+        <div className="text-warning underline">
+          <strong><i><a href={`rate?c=${course.id}`}>Rate</a></i></strong>
+        </div>
+
+
         <button type="button" className="btn custom-button2 d-flex justify-content-center mt-3 px-5">Launch Experience</button>
       </div>
     </div>

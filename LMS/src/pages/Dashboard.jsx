@@ -70,7 +70,7 @@ const Dashboard = ({ enrolledCourses = [], bookmarksCourses = [], recommendedCou
     <div className="dashboard px-md-5">
       <div>
         <div id='enrolled'>
-          <h4 className="mt-2">Enrolled Courses</h4>
+          <h4 className="mt-2" >Enrolled Courses</h4>
           <div className="row">
             {enrolledCourses.slice(0, visibleEnrolledCourses).map((course, index) => (
               <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
@@ -79,7 +79,7 @@ const Dashboard = ({ enrolledCourses = [], bookmarksCourses = [], recommendedCou
             ))}
             {enrolledCourses.length > visibleEnrolledCourses && (
               <div className="col-12 mt-2">
-                <a onClick={() => handleLoadMore("enrolled")} className="loadMoreButton loadMoreButton2">
+                <a onClick={() => handleLoadMore("enrolled")} className="loadMoreButton loadMoreButton2" href='#enrolled'> 
                   {showMoreEnrolled ? 'Load More' : 'Show Less'}
                 </a>
               </div>
@@ -88,7 +88,7 @@ const Dashboard = ({ enrolledCourses = [], bookmarksCourses = [], recommendedCou
         </div>
 
         <div id='bookmarks'>
-          <h4 className="mt-5">Bookmarks</h4>
+          <h4 className="mt-5" >Bookmarks</h4>
           <div className="row">
             {bookmarksCourses.slice(0, visibleBookmarksCourses).map((course, index) => (
               <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
@@ -97,7 +97,7 @@ const Dashboard = ({ enrolledCourses = [], bookmarksCourses = [], recommendedCou
             ))}
             {bookmarksCourses.length > visibleBookmarksCourses && (
               <div className="col-12 mt-2">
-                <a onClick={() => handleLoadMore("bookmarks")} className="loadMoreButton loadMoreButton2">
+                <a onClick={() => handleLoadMore("bookmarks")} className="loadMoreButton loadMoreButton2" href='#bookmarks'>
                   {showMoreBookmarks ? 'Load More' : 'Show Less'}
                 </a>
               </div>
@@ -115,7 +115,7 @@ const Dashboard = ({ enrolledCourses = [], bookmarksCourses = [], recommendedCou
             ))}
             {recommendedCourses.length > visibleRecommendedCourses && (
               <div className="col-12 mt-2">
-                <a onClick={() => handleLoadMore("recommended")} className="loadMoreButton loadMoreButton2">
+                <a onClick={() => handleLoadMore("recommended")} className="loadMoreButton loadMoreButton2" href='#topPicks'>
                   {showMoreRecommended ? 'Load More' : 'Show Less'}
                 </a>
               </div>

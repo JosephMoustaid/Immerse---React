@@ -35,6 +35,7 @@ import CreateGroup from "./pages/CreateGroup.jsx";
 import Test from "./pages/Test.jsx";
 import MakeQuiz from "./pages/MakeQuiz.jsx";
 import Quiz from "./pages/Quiz.jsx";
+import Rate from "./pages/Rate.jsx";
 // this is just for testing
 const settings1 ={
   id: 1,
@@ -127,7 +128,8 @@ const course1 = {
   teacher: teacher1.firstname+ teacher1.lastname, 
   teacherProfile: teacher1.profile,
   previewImg: arduinoCourse,
-  bookmark :false
+  bookmark :false ,
+  rating : {percentage : 4.5 , number :  354},
 };
 const course2 = {
   id: 102,
@@ -138,7 +140,9 @@ const course2 = {
   teacher: teacher1.firstname+ teacher1.lastname, 
   teacherProfile: teacher1.profile,
   previewImg: engineCourse,
-  bookmark :false
+  bookmark :false ,
+  rating : {percentage : 3.5 , number :  714},
+
 };
 const course3 = {
   id: 103,
@@ -149,7 +153,8 @@ const course3 = {
   teacher: teacher1.firstname+ teacher1.lastname, 
   teacherProfile: teacher1.profile,
   previewImg: engineCourse,
-  bookmark :true
+  bookmark :true ,
+  rating : {percentage : 5 , number :  12354},
 
 };
 const course4 = {
@@ -161,8 +166,8 @@ const course4 = {
   teacher: teacher1.firstname+ teacher1.lastname, 
   teacherProfile: teacher1.profile,
   previewImg: engineCourse,
-  bookmark :true
-
+  bookmark :true ,
+  rating : {percentage : 46 , number :  21},
 };
 const group1 = {
   id: 201,
@@ -442,6 +447,15 @@ const router = createBrowserRouter([
         path: 'quiz',
         element: <Quiz quiz={quiz} />,
       },
+      {
+        path: 'rate',
+        element: <Rate />,
+      },
+      {
+        path: 'rate', // Only base path, without query parameters
+        element: <Rate />,
+      }
+         
     ],
   },
 ]);
