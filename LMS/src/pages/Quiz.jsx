@@ -75,7 +75,13 @@ function Quiz({ quiz }) {
           {alertMessage}
         </div>
       )}
-        <button type="submit" disabled = {alertMessage.includes('All questions are answered')} className="fs-6 custom-button3 mb-5 px-3 d-flex justify-content-center m-auto">Submit</button>
+    <button
+    type="submit"
+    disabled={!!alertMessage} // Convert alertMessage to a boolean to determine if the button should be disabled
+    className="fs-6 custom-button3 mb-5 px-3 d-flex justify-content-center m-auto"
+    >
+    Submit
+    </button>
       </form>
     </div>
   );
