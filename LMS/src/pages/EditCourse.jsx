@@ -93,7 +93,7 @@ function EditCourse({ course, onSave }) {
                     accept="image/*"
                   />
                 </div>
-                <div className="mt-2">
+                <div className="mt-2 text-start">
                   Course ID: <p className="text-blue text-decoration-underline">#{formData.id}</p>
                 </div>
               </div>
