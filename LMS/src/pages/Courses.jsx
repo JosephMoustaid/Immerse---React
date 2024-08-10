@@ -59,29 +59,86 @@ function Courses({ courses }) {
             </div>
             <h4 className='underline mt-2 mb-3'>This is how the courses will be displayed to teachers</h4>
             <p className='underline mt-2 mb-3'>The teachers will have the courses they created here. If they want to browse public courses, they simply search.</p>
-            <div className="course-list-columns course-head" style={{ height: "30px" }}>
-                <div className="row">
-                    <div className="col-12 col-md-2">Course of</div>
-                    <div className="col-12 col-md-2">Field</div>
-                    <div className="col-12 col-md-3">Privacy</div>
-                    <div className="col-12 col-md-3">Actions</div>
-                </div>
-            </div>
-            {courses.length > 0 ? 
-                courses.map((course) => (
-                    <div key={course.id} className="course rounded">
-                        <div className="row">
-                            <div className="col-12 col-md-2">
-                                <img className="rounded" src={course.previewImg} alt={`Preview of ${course.title}`} />
-                            </div>
-                            <div className="col-12 col-md-2">{course.name}</div>
-                            <div className="col-12 col-md-2">{course.type}</div>
-                            <div className="col-12 col-md-3"><a href="#" onClick={() => handleShow(course)} role='button' className='blue-button'>View</a></div>
-                            <div className="col-12 col-md-3"><a href={course.editLink} role='button' className='blue-button'>Edit</a></div>
+            <div className="table-responsive">
+            <div className="table-responsive">
+    <table className="table table-bordered">
+        <thead className="thead-light">
+        <tr>
+            <th scope="col" className="d-none d-sm-table-cell">Preview</th>
+            <th scope="col">Course</th>
+            <th scope="col">Field</th>
+            <th scope="col">Privacy</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {courses.length > 0 ? (
+            courses.map((course) => (
+            <tr key={course.id} className="course rounded">
+                <td className="text-center d-none d-sm-table-cell">
+                    <img
+                        className="rounded course-list-previewImg img-fluid"
+                        src={course.previewImg}
+                        alt={`Preview of ${course.name}`}
+                        style={{ maxWidth: '100px', height: 'auto' }}
+                    />
+                </td>
+                <td>
+                    <div className="d-flex flex-column">
+                        <strong>Course</strong> 
+                        <span>{course.name}</span>
+                    </div>
+                </td>
+                <td>
+                    <div className="d-flex flex-column">
+                        <strong>Field</strong> 
+                        <span>{course.type}</span>
+                    </div>
+                </td>
+                <td>
+                    <div className="d-flex flex-column">
+                        <strong>Privacy</strong> 
+                        <span>{course.category}</span>
+                    </div>
+                </td>
+                <td>
+                    <div className="d-flex flex-column">
+                        <strong>Actions</strong> 
+                        <div className="d-flex justify-content-center justify-content-md-start">
+                            <a
+                            href={`view-course?c=${course.id}`}
+                            onClick={() => handleShow(course)}
+                            role="button"
+                            className="btn btn-sm editCourseButton px-2 me-2"
+                            >
+                            View
+                            </a>
+                            <a
+                            href={`edit-course?c=${course.id}`}
+                            role="button"
+                            className="btn btn-sm borderButton px-2"
+                            >
+                            Edit
+                            </a>
                         </div>
                     </div>
-                ))
-            : ""}
+                </td>
+            </tr>
+            ))
+        ) : (
+            <tr>
+            <td colSpan="5" className="text-center">
+                No courses available.
+            </td>
+            </tr>
+        )}
+        </tbody>
+    </table>
+</div>
+
+
+            </div>
+
             
             <h4 className='underline mt-2 mb-3 px-md-5'>This is how the courses will be displayed to students so they can browse</h4>
             <div className="dashboard px-md-5">

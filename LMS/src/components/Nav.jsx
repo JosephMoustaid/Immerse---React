@@ -1,42 +1,63 @@
-import logo from '../assets/logo.png'
-import PropTypes from 'prop-types'
-function Nav(props){
+import React from 'react';
+import PropTypes from 'prop-types';
+import logo from '../assets/logo.png';
+
+function Nav(props) {
     return (
         <>
-             <nav id="sidebar">
-                <ul   className="list-unstyled my-3 components">
-                    <li   className="logo-link mb-3">
-                        <a href="./dashboard"   className="nav-link ">
-                            <img src={logo} width="25" height="25" alt="logo" />
-                            <span   className="logo-text ms-4 ps-3 fs-5">Immerse</span>
-                        </a>
-                    </li>
-                    <li>
-                    <a href="./dashboard"   className={`nav-link ${props.currentLink === "dashboard" ? "current-link" : ""}`}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"   className="bi bi-bar-chart-fill" viewBox="0 0 16 16">
-                            <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
-                        </svg>
-                        <span>My Dashboard</span>
-                    </a>
+            {/* Offcanvas Sidebar */}
+            <div className="offcanvas offcanvas-start d-md-none" tabIndex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+                <div className="offcanvas-header">
+                    <h5 className="offcanvas-title" id="offcanvasSidebarLabel">Menu</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div className="offcanvas-body" id='sidebar2'>
+                    {renderSidebarLinks(props)}
+                </div>
+            </div>
 
-                    </li>
-                    <li>
-                        <a href="./courses"   className={`nav-link ${props.currentLink === "courses" ? "current-link" : ""}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"   className="shadow bi bi-mortarboard-fill" viewBox="0 0 16 16">
-                                <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
-                                <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
-                              </svg>
-                            <span  >Courses</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./groups"   className={`nav-link ${props.currentLink === "groups" ? "current-link" : ""}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"   className="bi bi-people-fill" viewBox="0 0 16 16">
-                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-                              </svg>
-                            <span>Groups</span>
-                        </a>
-                    </li>
+            {/* Sidebar for larger devices */}
+            <nav id="sidebar" className="d-none d-md-block">
+                {renderSidebarLinks(props)}
+            </nav>
+        </>
+    );
+}
+
+function renderSidebarLinks(props) {
+    return (
+        <ul className="list-unstyled my-3 components">
+            <li className="logo-link mb-3">
+                <a href="./dashboard" className="nav-link">
+                    <img src={logo} width="25" height="25" alt="logo" />
+                    <span className="logo-text ms-4 ps-3 fs-5">Immerse</span>
+                </a>
+            </li>
+            <li>
+                <a href="./dashboard" className={`nav-link ${props.currentLink === "dashboard" ? "current-link" : ""}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-bar-chart-fill" viewBox="0 0 16 16">
+                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
+                    </svg>
+                    <span>My Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="./courses" className={`nav-link ${props.currentLink === "courses" ? "current-link" : ""}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="shadow bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
+                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                    </svg>
+                    <span>Courses</span>
+                </a>
+            </li>
+            <li>
+                <a href="./groups" className={`nav-link ${props.currentLink === "groups" ? "current-link" : ""}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                    </svg>
+                    <span>Groups</span>
+                </a>
+            </li>
 
                     <li>
                         <a href="./students"   className={`nav-link ${props.currentLink === "students" ? "current-link" : ""}`}>
@@ -80,14 +101,12 @@ function Nav(props){
                             <span>Sign Out</span>
                         </a>
                     </li>
-                </ul>
-            </nav>
-            
-        </>
+        </ul>
     );
 }
 
 Nav.propTypes = {
-    currentLink : PropTypes.string,
+    currentLink: PropTypes.string,
 };
-export default Nav
+
+export default Nav;

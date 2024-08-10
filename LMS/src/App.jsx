@@ -69,9 +69,12 @@ function App(props) {
     <div className="container-fluid" data-bs-theme="light" onContextMenu={handleContextMenu}>
       <div className="row">
         <Nav currentLink={currentLink} />
+         {/* Hamburger menu button for smaller devices */}
+        
         <div className="content with-nav-footer">
           <div className="d-flex flex-row mb-3 justify-content-between">
-            <div className="search-box d-flex flex-row mt-3">
+            <a href="" className='fs-3 ham-button' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar"> <i class="bi bi-list"></i></a>
+            <div className="search-box d-flex flex-row mt-md-3">
               <form action="./search" method="post">
                 <input type="text"  placeholder="Search" ref={inputRef} id="search" />
               </form>
@@ -86,7 +89,7 @@ function App(props) {
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
               </svg>
             </div>
-            <div className="p-2">
+            <div className="p-2 pt-0">
               <a
                 href="notifications"
                 className="text-secondary notifications-icon position-relative me-1 me-md-3"

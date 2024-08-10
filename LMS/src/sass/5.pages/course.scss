@@ -26,6 +26,20 @@
                 color: $colour-dark-blue !important;
             }
         }
+        .editCourseButton{
+            padding: 8px 5px ;
+            max-width: 120px;
+            color: $colour-white !important;
+            text-align: center;
+            background-color: $colour-blue !important;
+            border-radius: 5px;
+        }
+        .course-list-previewImg{
+            @media (max-width:768px){
+                max-width: 100% !important;
+                min-width: 80% !important;
+            }
+        }
     }
     .course{
         .row{
@@ -35,5 +49,12 @@
                 object-fit: cover;
             }
         }
+    }
+    a,thead , tbody{
+        font-size: .9em;
+        @media (max-width:768px){
+            font-size: .7em;
+        }
+        
     }
 }
