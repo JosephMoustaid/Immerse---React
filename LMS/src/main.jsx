@@ -36,7 +36,8 @@ import Test from "./pages/Test.jsx";
 import MakeQuiz from "./pages/MakeQuiz.jsx";
 import Quiz from "./pages/Quiz.jsx";
 import Rate from "./pages/Rate.jsx";
-import EditCourse from "./pages/EditCourse.jsx"
+import EditCourse from "./pages/EditCourse.jsx";
+import ViewCourse from "./pages/ViewCourse.jsx";
 // this is just for testing
 const settings1 ={
   id: 1,
@@ -147,17 +148,46 @@ const course2 = {
 };
 const course3 = {
   id: 103,
-  description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
+  description: "This is a course to teach basic functionality of mechanical engines in general. We will go over the basics, some components...",
   name: "Engine Mechanics",
-  category : "mechanics",
+  category: "mechanics",
   type: "private",
-  teacher: teacher1.firstname+ teacher1.lastname, 
+  teacher: teacher1.firstname + " " + teacher1.lastname, 
   teacherProfile: teacher1.profile,
   previewImg: engineCourse,
-  bookmark :true ,
+  bookmark: true,
+  ratings: [
+    {
+      studentName: "John Doe",
+      rating: 4.5,
+      comment: "Great introduction to engine mechanics. The instructor was clear and the content was well-organized.",
+      date: "2024-08-01"
+    },
+    {
+      studentName: "Jane Smith",
+      rating: 4.0,
+      comment: "Good course, but could use more advanced examples. Overall, a solid foundation.",
+      date: "2024-08-03"
+    },
+    {
+      studentName: "Robert Brown",
+      rating: 5.0,
+      comment: "Excellent course! I learned a lot about the basics of engine mechanics. The practical examples were very helpful.",
+      date: "2024-08-05"
+    },
+    {
+      studentName: "Emily White",
+      rating: 3.5,
+      comment: "The course was decent, but I felt some topics were rushed. More detail would have been appreciated.",
+      date: "2024-08-07"
+    }
+  ] ,
   rating : {percentage : 5 , number :  12354},
 
 };
+
+ //rating : {percentage : 5 , number :  12354},
+
 const course4 = {
   id: 104,
   description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
@@ -458,7 +488,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'edit-course', // same in here
-        element: <EditCourse course={course1} />,
+        element: <EditCourse course={course3} />,
+      },
+      {
+      path: 'view-course', // same in here
+      element: <ViewCourse course={course3} />,
       }
          
     ],
