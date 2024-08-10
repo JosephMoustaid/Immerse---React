@@ -13,6 +13,14 @@ function EditCourse({ course, onSave }) {
   });
   const [showAlert, setShowAlert] = useState(false);
 
+
+  useEffect(() => {
+    let searchBox = document.querySelector(".search-box");
+    if (searchBox) {
+      searchBox.style.display = "none";
+    }
+  }, []);
+
   useEffect(() => {
     if (course) {
       setFormData({
@@ -77,7 +85,7 @@ function EditCourse({ course, onSave }) {
                 <img
                   src={formData.previewImg || 'https://via.placeholder.com/400'}
                   id="profileImage"
-                  style={{minWidth: '150px' ,  maxWidth: '400px' , maxHeight: '300px', minHeight: '150px' }}
+                  style={{minWidth: '250px' ,  maxWidth: '400px' , maxHeight: '200px', minHeight: '150px' }}
                   className="img-thumbnail shadow"
                   alt="Profile"
                 />

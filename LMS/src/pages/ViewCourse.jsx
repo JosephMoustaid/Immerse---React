@@ -1,7 +1,16 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 function ViewCourse({ course }) {
+    // removing search box in this page
+    useEffect(() => {
+        let searchBox = document.querySelector(".search-box");
+        if (searchBox) {
+            searchBox.style.display = "none";
+        }
+    }, []);
+
+      
   // Calculate average rating
   const averageRating = (
     course.ratings.reduce((acc, curr) => acc + curr.rating, 0) / course.ratings.length
