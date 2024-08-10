@@ -9332,6 +9332,10 @@ body {
     background-color: #ffffff; }
   body ul {
     list-style: none; }
+  body .camera-previewImg-button {
+    background-color: rgba(66, 66, 66, 0.541); }
+  body .text-blue {
+    color: #2b52ff; }
 
 #sidebar {
   min-height: 100vh;

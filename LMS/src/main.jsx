@@ -36,6 +36,7 @@ import Test from "./pages/Test.jsx";
 import MakeQuiz from "./pages/MakeQuiz.jsx";
 import Quiz from "./pages/Quiz.jsx";
 import Rate from "./pages/Rate.jsx";
+import EditCourse from "./pages/EditCourse.jsx"
 // this is just for testing
 const settings1 ={
   id: 1,
@@ -454,6 +455,10 @@ const router = createBrowserRouter([
       {
         path: 'rate', // Only base path, without query parameters
         element: <Rate />,
+      },
+      {
+        path: 'edit-course', // same in here
+        element: <EditCourse course={course1} />,
       }
          
     ],

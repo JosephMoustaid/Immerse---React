@@ -86,7 +86,7 @@ function Courses({ courses }) {
             <h4 className='underline mt-2 mb-3 px-md-5'>This is how the courses will be displayed to students so they can browse</h4>
             <div className="dashboard px-md-5">
                 <div className="mt-5 mb-5" id='topPicks'>
-                    <h4 className="mt-2">Courses</h4>
+                    <h2 className="mt-2">Courses</h2>
                     <div className="row">
                         <h4 className="mt-2" id='software'>Software</h4>
                         {courses.length > 0 ? (
