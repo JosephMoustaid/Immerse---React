@@ -14,6 +14,7 @@ import AssetList from './components/Assets/AssetList';
 import AssetForm from './components/Assets/AssetForm';
 import CourseList from './components/Courses/CourseList';
 import CourseForm from './components/Courses/CourseForm';
+import SignIn from './components/SignIn/SignIn';
 import { useLocation } from 'react-router-dom'; 
 
 const AppWrapper = (props) => {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: 'courses/:id',
         element: <CourseForm />,
+      },
+      {
+        path: 'sign-in',
+        element: <SignIn />,
       },
     ],
   },

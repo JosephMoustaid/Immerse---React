@@ -1,15 +1,18 @@
-// src/App.jsx
 import React from 'react';
-import Sidebar from './components/Sidebar/Sidebar.jsx'; 
+import Sidebar from './components/Sidebar/Sidebar.jsx';
 import './App.css'; 
-import "./css/style.css"
-import { Outlet } from 'react-router-dom'; 
+import './css/style.css';
+import { Outlet, useLocation } from 'react-router-dom';
+
 function App() {
+  const location = useLocation();
+  const showSidebar = !location.pathname.endsWith('/sign-in');
+
   return (
     <div className="container-fluid m-auto" data-bs-theme="light">
-      <Sidebar />
+      {showSidebar && <Sidebar />}
       <div className='m-auto'>
-        <div className=" content">
+        <div className={`${showSidebar && "content"} ${!showSidebar && "sign-in-content"}`}>
           <Outlet /> 
         </div>
       </div>
@@ -19,3 +22,4 @@ function App() {
 }
 
 export default App;
+
