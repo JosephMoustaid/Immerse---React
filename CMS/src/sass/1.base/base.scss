@@ -9,6 +9,7 @@ body{
     //font-family: 'Montserrat', sans-serif;
     //font-family: 'Roboto', sans-serif;
     font-family: 'Poppins', sans-serif;
+    font-size: .8em;
     letter-spacing: .5px;
     color: $colour-black;
     background-color: $colour-white !important;
@@ -33,7 +34,7 @@ body{
     }
     .content {
         background: $colour-white;
-        margin-left: 250px;
+        margin-left: 200px;
         padding: 20px;
         min-height: 100vh;
         box-sizing: border-box;

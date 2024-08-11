@@ -9285,6 +9285,7 @@ textarea.form-control-lg {
 
 body {
   font-family: 'Poppins', sans-serif;
+  font-size: .8em;
   letter-spacing: .5px;
   color: #000000;
   background-color: #ffffff !important; }
@@ -9303,7 +9304,7 @@ body {
     color: #2b52ff; }
   body .content {
     background: #ffffff;
-    margin-left: 250px;
+    margin-left: 200px;
     padding: 20px;
     min-height: 100vh;
     box-sizing: border-box; }
@@ -9324,8 +9325,8 @@ body {
       min-height: 60px; }
 
 .sidebar {
-  width: 250px;
-  max-width: 250px;
+  width: 200px;
+  max-width: 200px;
   height: 100vh;
   background-color: #110c1d;
   padding: 1rem;
@@ -9341,7 +9342,7 @@ body {
     color: blueviolet; }
     .sidebar .sidebar-logo h2, .sidebar .sidebar-logo .h2 {
       margin: 0;
-      font-size: 1.5rem; }
+      font-size: 1.5em; }
   .sidebar .sidebar-nav {
     flex: 1; }
     .sidebar .sidebar-nav ul {
@@ -9352,11 +9353,11 @@ body {
     margin-bottom: 1rem;
     text-decoration: none;
     color: #6359cdcf;
-    font-size: 1rem;
+    font-size: 1em;
     display: block;
     padding: 0.5rem;
     border-radius: 4px;
-    transition: background-color 0.3s; }
+    transition: background-color 0.3s, scale 0.3s; }
     .sidebar .nav-item:active, .sidebar .sidebar-signout:active {
       border-left: 3px solid #ffffff; }
     .sidebar .nav-item i, .sidebar .nav-item svg, .sidebar .sidebar-signout i, .sidebar .sidebar-signout svg {
@@ -9365,7 +9366,8 @@ body {
         color: #ffffff; }
     .sidebar .nav-item:hover, .sidebar .sidebar-signout:hover {
       color: #ffffff;
-      background-color: #4d637937; }
+      background-color: #4d637937;
+      scale: 1.07; }
   .sidebar .active {
     border-left: 3px solid #ffffff; }
 
@@ -9473,7 +9475,7 @@ body {
 
 .activity-time {
   color: #888;
-  font-size: 12px; }
+  font-size: 1em; }
 
 .stat-card {
   max-width: 400px;
@@ -9486,17 +9488,17 @@ body {
 
 .stat-card-title {
   padding: 0 26px;
-  font-size: 18px;
+  font-size: 1.2em;
   margin-bottom: 8px; }
 
 .stat-card-value {
   padding: 0 16px;
-  font-size: 24px;
+  font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 4px; }
 
 .stat-card-change {
-  font-size: 14px;
+  font-size: 1em;
   height: auto;
   padding: 10px 16px;
   border-bottom-left-radius: 20px;
