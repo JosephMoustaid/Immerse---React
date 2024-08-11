@@ -48,6 +48,7 @@ function App(props) {
   const location = useLocation();
   const currentLink = location.pathname.split('/')[1] || 'dashboard'; // Default to 'dashboard' if path is '/'
   const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/make-course' || location.pathname === '/create-group' ;// || location.pathname === '/make-quiz';
+  const noSearchBox = location.pathname === '/view-course' || location.pathname === '/edit-course' ;
 
   useEffect(() => {
     if (noNavFooter) {
@@ -57,6 +58,17 @@ function App(props) {
       document.body.classList.remove('sign-up-body');
     }
   }, [noNavFooter]);
+
+
+  // removing search box in view-course , and edit-course
+  useEffect(() => {
+    if (noSearchBox) {
+      let searchBox = document.querySelector('.search-box');
+      searchBox.style.display ="none";
+    }
+  }, [noSearchBox]);
+
+  
 
   // Return only Outlet if noNavFooter is true
   if (noNavFooter) {

@@ -15,13 +15,6 @@ function EditCourse({ course, onSave }) {
 
 
   useEffect(() => {
-    let searchBox = document.querySelector(".search-box");
-    if (searchBox) {
-      searchBox.style.display = "none";
-    }
-  }, []);
-
-  useEffect(() => {
     if (course) {
       setFormData({
         id: course.id || 0,
