@@ -6,10 +6,10 @@ import "./css/style.css"
 import { Outlet } from 'react-router-dom'; 
 function App() {
   return (
-    <div className="container-fluid" data-bs-theme="light">
+    <div className="container-fluid m-auto" data-bs-theme="light">
       <Sidebar />
-      <div className="row">
-        <div className="col content">
+      <div className='m-auto'>
+        <div className=" content">
           <Outlet /> 
         </div>
       </div>

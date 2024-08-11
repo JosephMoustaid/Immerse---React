@@ -66,6 +66,9 @@
 #create-group-carousel .carousel-item form .btn.btn-next {
   right: 20px;
 }
+#create-group-carousel .carousel-item .make-quiz-form {
+  max-width: 900px;
+}
 #create-group-carousel .suggestions-list {
   position: absolute;
   top: 100%;

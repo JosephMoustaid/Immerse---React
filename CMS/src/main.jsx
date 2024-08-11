@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
+        path: 'dashboard',
+        element: <Dashboard />,
+      },
+      {
         path: 'students',
         element: <StudentList students = {[]}/>,
       },

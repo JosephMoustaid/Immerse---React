@@ -1,14 +1,17 @@
 *{
     box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
 body{
     //font-family: 'Montserrat', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    //font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     letter-spacing: .5px;
     color: $colour-black;
     background-color: $colour-white !important;
-    max-width:2000px;
-    margin: auto;
     .underline{
         text-decoration: underline !important;
     }
@@ -28,8 +31,24 @@ body{
     .text-blue{
         color: $colour-blue;
     }
-    .content{
-        background-color: l;
+    .content {
+        background: $colour-white;
+        margin-left: 250px;
+        padding: 20px;
+        min-height: 100vh;
+        box-sizing: border-box;
     }
+    .dropdown-menu {
+        min-height: 60px;
+        min-width: 100%;
+        position: absolute; 
+        top: 100%;
+        left: 0; 
+        z-index: 1000; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        .dropdown-item{
+          min-height: 60px;
+        }
+      }
     
 }

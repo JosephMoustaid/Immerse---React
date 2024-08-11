@@ -1,5 +1,6 @@
 .sidebar {
-    width: 200px;
+    width: 250px; 
+    max-width: 250px; 
     height: 100vh;
     background-color: #110c1d;
     padding: 1rem;
@@ -9,7 +10,6 @@
     top: 0;
     left: 0;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  
 
     .sidebar-logo {
       text-align: center;
@@ -34,7 +34,7 @@
     .nav-item , .sidebar-signout{
         margin-bottom: 1rem;
         text-decoration: none;
-        color: #1c49a88a;
+        color: #6359cdcf;
         font-size: 1rem;
         display: block;
         padding: 0.5rem;
@@ -42,20 +42,23 @@
         transition: background-color 0.3s;
 
         &:active {
-          border-left: 2px solid white;
+          border-left: 3px solid $colour-white;
         }
 
         i, svg {
-          color: #ffffff;
+          color: $colour-white;
 
           path {
-            color: #ffffff;
+            color: $colour-white;
           }
         }
 
         &:hover {
-          color: white;
+          color: $colour-white;
           background-color: #4d637937;
         }
+      }
+      .active{
+        border-left: 3px solid $colour-white;
       }
   }

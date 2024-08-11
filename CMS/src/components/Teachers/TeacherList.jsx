@@ -1,26 +1,29 @@
-// src/components/Teachers/TeacherList.js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import Table from '../Table/Table.jsx';
 
-const TeacherList = () => {
-  const [teachers, setTeachers] = useState([]);
+function TeacherList() {
+  const columns = [
+    { header: "ID", accessor: "id" },
+    { header: "Name", accessor: "name" },
+    { header: "Subject", accessor: "subject" },
+    { header: "Experience", accessor: "experience" },
+    { header: "Status", accessor: "status" }
+  ];
 
-  useEffect(() => {
-    axios.get('/api/teachers')
-      .then(response => setTeachers(response.data))
-      .catch(error => console.error('Error fetching teachers:', error));
-  }, []);
+  const data = [
+    { id: 1, name: "Dr. Alice Brown", subject: "Computer Science", experience: "10 years", status: "Active" },
+    { id: 2, name: "Prof. Mark Davis", subject: "Mathematics", experience: "15 years", status: "On Leave" },
+    { id: 3, name: "Dr. Emily Clark", subject: "Physics", experience: "8 years", status: "Active" },
+    { id: 4, name: "Dr. Robert White", subject: "Chemistry", experience: "12 years", status: "Retired" },
+    { id: 5, name: "Prof. Laura Green", subject: "Biology", experience: "5 years", status: "Active" },
+  ];
 
   return (
-    <div>
-      <h2>Teacher List</h2>
-      <ul>
-        {teachers.map(teacher => (
-          <li key={teacher.id}>{teacher.name}</li>
-        ))}
-      </ul>
+    <div className="teacher-list">
+      <h1 className='letter-spacing-5 mb-4'>Teachers</h1>
+      <Table columns={columns} data={data} />
     </div>
   );
-};
+}
 
 export default TeacherList;
