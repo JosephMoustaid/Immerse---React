@@ -22,7 +22,7 @@ function SignIn(){
                 </label>
                 <input type="password" id="password" className="form-control" placeholder="Password" required />
               </div>
-              <button type="submit" id="confirm" className="btn btn-purple btn-block custom-button">
+              <button type="submit" id="confirm" className="fs-6 btn btn-purple btn-block custom-button">
                 Sign In
               </button>
             </form>

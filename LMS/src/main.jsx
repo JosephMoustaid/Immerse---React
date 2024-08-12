@@ -28,6 +28,7 @@ import Settings from './pages/Settings.jsx';
 import SignUp from './pages/SignUp.jsx';
 import SignIn from './pages/SignIn.jsx';
 import ForgotPassword from "./pages/ForgotPassword.jsx";
+import Resetpassword from "./pages/Resetpassword.jsx";
 import GroupChat from './pages/GroupChat.jsx';
 import Notifications from './pages/Notifications.jsx';
 import MakeCourse from './pages/MakeCourse.jsx';
@@ -549,6 +550,10 @@ const router = createBrowserRouter([
       {
         path: 'forgot-password', // same in here
         element: <ForgotPassword />,
+      } ,
+      {
+        path: 'reset-password', // same in here
+        element: <Resetpassword />,
       } 
     ],
   },
