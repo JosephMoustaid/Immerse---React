@@ -55,7 +55,8 @@ function Courses({ courses }) {
     return (
         <div className="course-list mt-4 px-md-5">
             <div className="d-flex justify-content-end">
-                <a href="make-course" className='custom-button2 px-3 text-light'>Make a course</a>
+                <a href="join-course" className='custom-button2 px-3 text-light me-2'><i className="bi bi-box-arrow-in-right "></i> join a course</a>
+                <a href="make-course" className='custom-button2 px-3 text-light'><i className="bi bi-plus-lg"></i> Make a course</a>
             </div>
             <h4 className='underline mt-2 mb-3'>This is how the courses will be displayed to teachers</h4>
             <p className='underline mt-2 mb-3'>The teachers will have the courses they created here. If they want to browse public courses, they simply search.</p>

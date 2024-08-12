@@ -9390,11 +9390,14 @@ body {
           color: #000000; }
 
 .content {
-  min-height: 100vh;
+  min-height: 100vh !important;
   width: calc(100% - 70px) !important;
   margin-left: 70px;
   padding: 20px;
   transition: margin-left 0.3s; }
+  @media (max-width: 768px) {
+    .content {
+      width: 100% !important; } }
   #sidebar:hover .content {
     margin-left: 250px;
     /* Same as the max-width on hover */ }
@@ -9425,6 +9428,10 @@ body {
   position: fixed;
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.616); }
+  @media (max-width: 768px) {
+    #sidebar2 {
+      min-width: 300px !important;
+      max-width: 300px !important; } }
   #sidebar2:hover {
     max-width: 250px;
     color: #000000; }
@@ -9552,13 +9559,15 @@ body {
     all: unset;
     height: 25px;
     font-size: .9em;
+    min-width: 200px !important;
+    min-width: 500px !important;
     border: none;
     box-shadow: none;
     font-weight: 400; }
     @media (max-width: 768px) {
       .search-box form input, .search-box form select {
         height: 18px;
-        max-width: 100px !important;
+        min-width: 100px !important;
         font-size: .8em; } }
     .search-box form input:hover, .search-box form input:active, .search-box form input:focus, .search-box form input::placeholder, .search-box form select:hover, .search-box form select:active, .search-box form select:focus, .search-box form select::placeholder {
       background-color: transparent;

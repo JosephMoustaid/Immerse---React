@@ -2,6 +2,7 @@
     z-index: 2000;
     min-height: 100vh;
     max-width: 70px;
+    
     transition: all 0.3s;
     white-space: nowrap;
     overflow: hidden;
@@ -81,7 +82,10 @@
 
 
 .content {
-    min-height: 100vh;
+    min-height: 100vh !important;
+    @media (max-width:768px) {
+        width: 100% !important;
+    }
     width: calc(100% - 70px) !important;
     margin-left: 70px; 
     padding: 20px;
@@ -124,7 +128,10 @@
     position: fixed;
     background-color: $colour-white;
     color: $colour-transparent-black2;
-    
+    @media (max-width:768px){
+        min-width: 300px !important;
+        max-width: 300px !important;
+    }
     &:hover {
         max-width: 250px;
         color: $colour-black;

@@ -14,20 +14,26 @@ const ParentComponent = () => {
   */
 
   /* Data to test enrollement 
-   
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  const dataPoints = [50, 100, 150, 200, 120, 76, 350];
+  
+
+
 */
 
-/*Data for comitement compoonnent 
-
-const testData = {
+const overViewData ={
+  totalLearners:108554 ,
+  countries:181,
+  emergingEconomies : 49458
+};
+const enroollmentData = {
+  labels : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  dataPoints : [50, 100, 150, 200, 120, 76, 350]
+}
+const commitementData = {
   complete: 120,
   audit: 45,
   uncommitted: 35,
 };
-*/
-const testData = {
+const continentData = {
   
     "North America": 35,
     "Asia": 34,
@@ -37,9 +43,7 @@ const testData = {
     "Oceania": 2
   
 };
-
-
-const testData2 = {
+const countryData = {
   
   "USA": 35,
   "Canada": 34,
