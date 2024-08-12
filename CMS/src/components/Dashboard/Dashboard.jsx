@@ -2,6 +2,11 @@ import React from 'react';
 import StatCard from './StatCard';
 import BarChart from './BarChart';
 
+import Overview from "./Overview";
+import Enrollment from "./Enrollment";
+import CommitmentInsight from "./CommitmentInsight";
+import ContinentInsights from "./ContinentInsights";
+import CountryInsights from "./CountryInsights";
 function Dashboard() {
   const studentActivities = [
     { user: "John Doe", action: "uploaded a new 3D asset.", time: "3m ago" },
@@ -24,6 +29,45 @@ function Dashboard() {
     { name: 'Software', students: 150 },
   ];
 
+  // Data for testing the dashboard components  
+  const overViewData ={
+    totalLearners:108554 ,
+    countries:181,
+    emergingEconomies : 49458
+  };
+  const enroollmentData = {
+    labels : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    dataPoints : [50, 100, 150, 200, 120, 76, 350]
+  }
+  const commitementData = {
+    complete: 120,
+    audit: 45,
+    uncommitted: 35,
+  };
+  const continentData = {
+    
+      "North America": 35,
+      "Asia": 34,
+      "Europe": 22,
+      "South America": 5,
+      "Africa": 2,
+      "Oceania": 2
+    
+  };
+  const countryData = {
+    
+    "USA": 35,
+    "Canada": 34,
+    "Morocco": 12,
+    "France": 5,
+    "Egypt": 2,
+    "Maltas": 2,
+    "Croatia": 5,
+    "Netherlands": 2,
+    "Congo": 5,
+    "South Africa": 2,
+  
+  };
   return (
     <div className="dashboard bg-light">
       <h1 className='letter-spacing-5 mb-4'>DASHBOARD</h1>
@@ -39,9 +83,35 @@ function Dashboard() {
           />
         ))}
       </div>
-      <div className="dashboard-main d-flex">
-        <div className="dashboard-chart w-75">
-          <BarChart data={studentData} />
+      <div className="container">
+        <div className="row">
+          <div className="col-12 ">
+            <Overview totalLearners={overViewData.totalLearners} countries={overViewData.countries} emergingEconomies={overViewData.emergingEconomies} />
+          </div>
+          <div className="col-12 col-md-6">
+            <h2>Enrollment</h2>
+            <Enrollment labels={enroollmentData.labels} dataPoints={enroollmentData.dataPoints}></Enrollment>
+          </div>
+          <div className="col-12 col-md-6">
+            <h2>Courses by category</h2>
+            <div className="dashboard-main d-flex">
+              <div className="dashboard-chart w-75">
+                <BarChart data={studentData} />
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-md-6">
+            <h2>Intent</h2>
+            <CommitmentInsight complete={commitementData.complete} audit={commitementData.audit} uncommitted={commitementData.uncommitted}></CommitmentInsight>
+          </div>
+          <div className="col-12 col-md-6">
+            <h2>Continents</h2>
+            <ContinentInsights data={continentData}></ContinentInsights>
+          </div>
+          <div className="col-12 col-md-6">
+            <h2>Countries</h2>
+            <CountryInsights data={countryData}></CountryInsights>
+          </div>
         </div>
       </div>
     </div>

@@ -12,6 +12,8 @@ const Table = ({ columns, data }) => {
 
     // Handle page change
     const handlePageChange = (page) => {
+        if (page < 1) return; // Don't go below page 1
+        if (page > totalPages) return; // Don't go beyond total pages
         setCurrentPage(page);
     };
 
@@ -26,16 +28,15 @@ const Table = ({ columns, data }) => {
 
     return (
         <div className="asset-table-container">
-            <div className="table-header">
-                <button className="add-asset-btn">Add Asset</button>
-                <button className="report-btn">Report</button>
-            </div>
+
             <table className="asset-table rounded">
                 <thead>
                     <tr>
                         {columns.map((col, index) => (
                             <th key={index}>{col.header}</th>
                         ))}
+                        <th >Delete</th>
+                        <th >Edit</th>
                     </tr>
                 </thead>
                 <tbody className="rounded">
@@ -44,6 +45,8 @@ const Table = ({ columns, data }) => {
                             {columns.map((col, colIndex) => (
                                 <td key={colIndex}>{row[col.accessor]}</td>
                             ))}
+                            <td><button className='bg-danger text-light rounded border '><i class="bi bi-trash-fill"></i></button></td>
+                            <td><button className='bg-success text-light rounded border'><i class="bi bi-pen-fill"></i></button></td>
                         </tr>
                     ))}
                 </tbody>
