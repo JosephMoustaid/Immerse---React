@@ -27,7 +27,7 @@ function SignIn(){
               </button>
             </form>
             <div className="text-center mt-3">
-              <a href="#" className="text-muted">
+              <a href="forgot-password" className="text-muted">
                 Forgot password?
               </a>
             </div>

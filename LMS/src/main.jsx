@@ -27,6 +27,7 @@ import Profile from './pages/Profile.jsx';
 import Settings from './pages/Settings.jsx';
 import SignUp from './pages/SignUp.jsx';
 import SignIn from './pages/SignIn.jsx';
+import ForgotPassword from "./pages/ForgotPassword.jsx";
 import GroupChat from './pages/GroupChat.jsx';
 import Notifications from './pages/Notifications.jsx';
 import MakeCourse from './pages/MakeCourse.jsx';
@@ -40,6 +41,7 @@ import EditCourse from "./pages/EditCourse.jsx";
 import ViewCourse from "./pages/ViewCourse.jsx";
 import Enrollment from './components/DashboardComponents/Enrollment.jsx';
 import JoinCourse from './pages/JoinCourse.jsx';
+
 // this is just for testing
 const settings1 ={
   id: 1,
@@ -543,8 +545,11 @@ const router = createBrowserRouter([
       {
         path: 'join-course', // same in here
         element: <JoinCourse />,
-        }
-         
+      },
+      {
+        path: 'forgot-password', // same in here
+        element: <ForgotPassword />,
+      } 
     ],
   },
 ]);
