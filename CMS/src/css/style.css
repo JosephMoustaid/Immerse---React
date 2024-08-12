@@ -9416,14 +9416,16 @@ body {
   background-color: #c8c7bc 0;
   color: #000000; }
 
-.asset-table tr button {
+.asset-table tr a {
+  padding: 5px;
   border: 2px solid #000000 !important;
   border-color: #000000 !important; }
 
 .asset-table tr:nth-child(2n) {
   background-color: #2a3a4b;
   color: #ffffff; }
-  .asset-table tr:nth-child(2n) button {
+  .asset-table tr:nth-child(2n) a {
+    padding: 5px;
     border: 2px solid #ffffff !important;
     border-color: #ffffff; }
 

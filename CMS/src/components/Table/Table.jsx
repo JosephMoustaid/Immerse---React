@@ -1,89 +1,166 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const Table = ({ columns, data }) => {
-    // State for pagination
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(10);
+const Table = ({ columns, data, onDelete }) => {
+  const path = useLocation();
+  const page = path.pathname.split('/').filter(Boolean).pop();
+    
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
-    // Calculate the indices of the items to display
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const paginatedData = data.slice(startIndex, endIndex);
+  // State for managing the modal
+  const [showModal, setShowModal] = useState(false);
+  const [deleteIndex, setDeleteIndex] = useState(null);
 
-    // Handle page change
-    const handlePageChange = (page) => {
-        if (page < 1) return; // Don't go below page 1
-        if (page > totalPages) return; // Don't go beyond total pages
-        setCurrentPage(page);
-    };
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = data.slice(startIndex, endIndex);
 
-    // Handle items per page change
-    const handleItemsPerPageChange = (e) => {
-        setItemsPerPage(Number(e.target.value));
-        setCurrentPage(1); // Reset to first page when items per page changes
-    };
+  const handlePageChange = (page) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+  };
 
-    // Calculate total pages
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+  const handleItemsPerPageChange = (e) => {
+    setItemsPerPage(Number(e.target.value));
+    setCurrentPage(1);
+  };
 
-    return (
-        <div className="asset-table-container">
+  const handleDelete = (index) => {
+    setShowModal(true);
+    setDeleteIndex(index);
+  };
 
-            <table className="asset-table rounded">
-                <thead>
-                    <tr>
-                        {columns.map((col, index) => (
-                            <th key={index}>{col.header}</th>
-                        ))}
-                        <th >Delete</th>
-                        <th >Edit</th>
-                    </tr>
-                </thead>
-                <tbody className="rounded">
-                    {paginatedData.map((row, rowIndex) => (
-                        <tr key={rowIndex}>
-                            {columns.map((col, colIndex) => (
-                                <td key={colIndex}>{row[col.accessor]}</td>
-                            ))}
-                            <td><button className='bg-danger text-light rounded border '><i class="bi bi-trash-fill"></i></button></td>
-                            <td><button className='bg-success text-light rounded border'><i class="bi bi-pen-fill"></i></button></td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-            <div className="pagination">
-                <span>Per page: </span>
-                <select className="select-control" value={itemsPerPage} onChange={handleItemsPerPageChange}>
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={50}>50</option>
-                </select>
-                <div className="page-controls text-secondary">
-                    <button
-                        disabled={currentPage === 1}
-                        onClick={() => handlePageChange(currentPage - 1)}
-                    >
-                        Previous
-                    </button>
-                    {[...Array(totalPages)].map((_, index) => (
-                        <button
-                            key={index}
-                            className={currentPage === index + 1 ? 'active' : ''}
-                            onClick={() => handlePageChange(index + 1)}
-                        >
-                            {index + 1}
-                        </button>
-                    ))}
-                    <button
-                        disabled={currentPage === totalPages}
-                        onClick={() => handlePageChange(currentPage + 1)}
-                    >
-                        Next
-                    </button>
-                </div>
-            </div>
+  const confirmDelete = () => {
+    onDelete(deleteIndex);
+    setShowModal(false);
+  };
+
+  const cancelDelete = () => {
+    setShowModal(false);
+    setDeleteIndex(null);
+  };
+
+  const handleDeleteClick = (e, index) => {
+    e.preventDefault(); // Prevent page refresh
+    handleDelete(index);
+  };
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  return (
+    <div className="asset-table-container">
+      <table className="asset-table rounded">
+        <thead>
+          <tr>
+            {columns.map((col, index) => (
+              <th key={index}>{col.header}</th>
+            ))}
+            <th>Delete</th>
+            {(page !== "assets") && <th>Edit</th>}
+          </tr>
+        </thead>
+        <tbody className="rounded">
+          {paginatedData.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {columns.map((col, colIndex) => (
+                <td key={colIndex}>{row[col.accessor]}</td>
+              ))}
+              <td>
+                <a 
+                  href="#"
+                  className="bg-danger text-light rounded border"
+                  onClick={(e) => handleDeleteClick(e, startIndex + rowIndex)}
+                >
+                  <i className="bi bi-trash-fill"></i>
+                </a>
+              </td>
+              {(page !== "assets") && 
+                <td>
+                  <a 
+                    href={`/${page}/:${paginatedData[rowIndex].id}`}
+                    className="bg-success text-light rounded border"
+                  >
+                    <i className="bi bi-pen-fill"></i>
+                  </a>
+                </td>
+              }
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="pagination">
+        <span>Per page: </span>
+        <select
+          className="select-control"
+          value={itemsPerPage}
+          onChange={handleItemsPerPageChange}
+        >
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+          <option value={50}>50</option>
+        </select>
+        <div className="page-controls text-secondary">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            Previous
+          </button>
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              className={currentPage === index + 1 ? 'active' : ''}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            Next
+          </button>
         </div>
-    );
+      </div>
+
+      {/* Modal */}
+      <div
+        className={`modal fade ${showModal ? 'show d-block' : 'd-none'}`}
+        tabIndex="-1"
+        role="dialog"
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+      >
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title text-dark">Confirm Deletion</h5>
+            </div>
+            <div className="modal-body text-dark">
+              <p>Are you sure you want to delete this item?</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={cancelDelete}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={confirmDelete}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Table;

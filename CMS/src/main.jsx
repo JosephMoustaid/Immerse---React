@@ -11,7 +11,6 @@ import StudentForm from './components/Students/StudentForm';
 import TeacherList from './components/Teachers/TeacherList';
 import TeacherForm from './components/Teachers/TeacherForm';
 import AssetList from './components/Assets/AssetList';
-import AssetForm from './components/Assets/AssetForm';
 import CourseList from './components/Courses/CourseList';
 import CourseForm from './components/Courses/CourseForm';
 import SignIn from './components/SignIn/SignIn';
@@ -54,10 +53,6 @@ const router = createBrowserRouter([
       {
         path: 'assets',
         element: <AssetList />,
-      },
-      {
-        path: 'assets/:id',
-        element: <AssetForm />,
       },
       {
         path: 'courses',

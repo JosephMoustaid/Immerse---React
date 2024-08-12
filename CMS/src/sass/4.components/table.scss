@@ -50,7 +50,8 @@
     color: $colour-black;
 }
 .asset-table tr {
-    button{
+    a{
+        padding: 5px;
         border: 2px solid $colour-black !important; 
         border-color: $colour-black !important;
     }
@@ -59,7 +60,8 @@
 .asset-table tr:nth-child(2n) {
     background-color: #2a3a4b;
     color: $colour-white;
-    button{
+    a{
+        padding: 5px;
         border: 2px solid $colour-white !important; 
         border-color: $colour-white;
     }

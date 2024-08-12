@@ -6,8 +6,10 @@ import logo from '../../assets/logo.png';
 const Sidebar = () => (
   <div className="sidebar d-flex flex-column h-100">
     <div className="sidebar-logo mt-3">
-      <img src={logo} alt="logo" style={{ maxWidth: '40px' }} />
-      <h2>Immerse CMS</h2>
+      <a href="dashboard">
+        <img src={logo} alt="logo" style={{ maxWidth: '40px' }} />
+        <h2>Immerse CMS</h2>
+      </a>
     </div>
     <nav className="sidebar-nav flex-fill">
       <ul className="nav flex-column">
