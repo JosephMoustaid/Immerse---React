@@ -82,8 +82,8 @@
 
 .content {
     min-height: 100vh;
-    width: calc(100% - 70px);
-    margin-left: 70px; /* Same as the max-width of the sidebar */
+    width: calc(100% - 70px) !important;
+    margin-left: 70px; 
     padding: 20px;
     transition: margin-left 0.3s;
     

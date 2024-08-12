@@ -5,7 +5,16 @@ import OffCanvasCourse from '../components/OffCanvasCourse.jsx';
 import PropTypes from 'prop-types';
 import { courseShape, assignmentShape } from '../types/types.js';
 
-const Dashboard = ({ enrolledCourses = [], bookmarksCourses = [], recommendedCourses = [], assignments = [] }) => {
+
+// Dashboard inner components : 
+import Overview from "../components/DashboardComponents/Overview";
+import Enrollment from "../components/DashboardComponents/Enrollment";
+import CommitmentInsight from "../components/DashboardComponents/CommitmentInsight";
+import ContinentInsights from "../components/DashboardComponents/ContinentInsights";
+import CountryInsights from "../components/DashboardComponents/CountryInsights";
+
+
+const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses = [], recommendedCourses = [], assignments = [] }) => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [currentCourse, setCurrentCourse] = useState(null);
   const [visibleEnrolledCourses, setVisibleEnrolledCourses] = useState(4);
@@ -68,7 +77,34 @@ const Dashboard = ({ enrolledCourses = [], bookmarksCourses = [], recommendedCou
 
   return (
     <div className="dashboard px-md-5">
-      <div>
+      <div className='w-90'>
+        <h1>This is the teacher dashboard </h1>
+        <div className='px-2'>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <Overview totalLearners={teacherDashboard.overview.totalLearners} countries={teacherDashboard.overview.countries} emergingEconomies={teacherDashboard.overview.emergingEconomies} />
+              </div>
+              <div className="col-12 col-lg-6">
+                <Enrollment  labels={teacherDashboard.enrollment.months} dataPoints={teacherDashboard.enrollment.dataPoints} />
+
+              </div>
+              <div className="col-6">
+              <CommitmentInsight  complete={teacherDashboard.comitement.complete} audit={teacherDashboard.comitement.audit} uncommitted={ teacherDashboard.comitement.uncommitted} />
+
+              </div>
+              <div className="col-6">
+              <ContinentInsights  data={teacherDashboard.continent} />
+
+              </div>
+              <div className="col-6">
+              <CountryInsights  data={teacherDashboard.country} />
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1>This is the student dashboard </h1>
         <div id='enrolled'>
           <h4 className="mt-2" >Enrolled Courses</h4>
           <div className="row">

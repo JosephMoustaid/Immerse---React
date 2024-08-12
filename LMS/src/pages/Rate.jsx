@@ -20,7 +20,7 @@ function Rate() {
   return (
     <div className="rate-container mt-5 mb-5 m-auto text-center" style={{ maxWidth: "800px" }}>
       <h2>Rate the Course</h2>
-      <h4>Your opinion matter to us!</h4>
+      <h4>Your opinion matters to us!</h4>
       <p>We work hard to provide a unique yet effective learning experience that can help students and people intrested in learning learn fast in an immerssive & engaging environement.</p>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">

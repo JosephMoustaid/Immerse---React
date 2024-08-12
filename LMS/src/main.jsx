@@ -38,6 +38,7 @@ import Quiz from "./pages/Quiz.jsx";
 import Rate from "./pages/Rate.jsx";
 import EditCourse from "./pages/EditCourse.jsx";
 import ViewCourse from "./pages/ViewCourse.jsx";
+import Enrollment from './components/DashboardComponents/Enrollment.jsx';
 // this is just for testing
 const settings1 ={
   id: 1,
@@ -71,7 +72,6 @@ const notifications3 = {
   time: "10:00 am",
   date: "30/01/2024",
 };
-
 const student = {
   id: 10253,
   firstname: "youssef",
@@ -401,6 +401,51 @@ const AppWrapper = (props) => {
   return <App currentLink={location.pathname} {...props} user={student2} />;
 };
 
+
+// Data for dashboard tests 
+const comitementData = {
+  complete: 120,
+  audit: 45,
+  uncommitted: 35,
+};
+const continentData = {
+  "North America": 35,
+  "Asia": 34,
+  "Europe": 22,
+  "South America": 5,
+  "Africa": 2,
+  "Oceania": 2
+};
+const countrytData = {
+  "USA": 35,
+  "Canada": 34,
+  "Morocco": 12,
+  "France": 5,
+  "Egypt": 2,
+  "Maltas": 2,
+  "Croatia": 5,
+  "Netherlands": 2,
+  "Congo": 5,
+  "South Africa": 2,
+
+};
+const enrollementData ={
+    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July'] , 
+    dataPoints : [50, 100, 150, 200, 120, 76, 350] ,
+}
+const overviewData = {
+  totalLearners:108554 ,
+  countries:181 ,
+  emergingEconomies:49458
+};
+// I grouped all the data in one object to make life easier
+const teacherDashboardData = {
+    overview : overviewData,
+    enrollment : enrollementData ,
+    comitement : comitementData ,
+    continent : continentData,
+    country : countrytData ,
+}
 const router = createBrowserRouter([
   {
     path: '/',
@@ -408,11 +453,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Dashboard enrolledCourses={[course1 , course2, course3,course4 , course2 , course4]} bookmarksCourses={[course3, course4,course4 , course2 , course4]} recommendedCourses={[course1 , course2,course4 , course2 , course4,course4 , course2 , course4]}  assignments={[assignement1 , assignement2]}  user={student2}/>,
+        element: <Dashboard teacherDashboard={teacherDashboardData} enrolledCourses={[course1 , course2, course3,course4 , course2 , course4]} bookmarksCourses={[course3, course4,course4 , course2 , course4]} recommendedCourses={[course1 , course2,course4 , course2 , course4,course4 , course2 , course4]}  assignments={[assignement1 , assignement2]}  user={student2}/>,
       },
       {
         path: 'dashboard',
-        element: <Dashboard enrolledCourses={[course1 , course2,course3,course4 , course2 , course4]} bookmarksCourses={[course3, course4,course4 , course2 , course4]} recommendedCourses={[course1 , course2,course4 , course2 , course4,course4 , course2 , course4]}  assignments={[assignement1 , assignement2]} user={student2}/>,
+        element: <Dashboard teacherDashboard={teacherDashboardData} enrolledCourses={[course1 , course2,course3,course4 , course2 , course4]} bookmarksCourses={[course3, course4,course4 , course2 , course4]} recommendedCourses={[course1 , course2,course4 , course2 , course4,course4 , course2 , course4]}  assignments={[assignement1 , assignement2]} user={student2}/>,
       },
       {
         path: 'courses',

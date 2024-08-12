@@ -38,7 +38,7 @@ const SuccessModal = ({ show, onClose, roomCode }) => {
             </div>
           </div>
           <div className="modal-footer justify-content-center">
-            <button type="button" className="btn btn-primary" onClick={onClose}>Close</button>
+            <button type="button" className="btn btn-primary w-100" onClick={onClose}>Close</button>
           </div>
         </div>
       </div>
