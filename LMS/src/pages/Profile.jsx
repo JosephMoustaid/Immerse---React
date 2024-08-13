@@ -54,17 +54,17 @@ function Profile({ user }) {
                         </div>
                         <form>
                             <div className="form-group row mt-2">
-                                <div className="col-6">
+                                <div className="col-12 col-sm-6">
                                     <label htmlFor="firstname" className="col-form-label">Firstname</label>
                                     <input type="text" name="firstname" className="form-control shadow-sm" id="firstname" defaultValue={user.firstname} />
                                 </div>
-                                <div className="col-6">
+                                <div className="col-12 col-sm-6">
                                     <label htmlFor="lastname" className="col-form-label">Lastname</label>
                                     <input type="text" className="form-control shadow-sm" name="lastname" id="lastname" defaultValue={user.lastname} />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <div className="col-6">
+                                <div className="col-12 col-sm-6">
                                     <label htmlFor="gender" className="col-form-label">Gender</label>
                                     <select name="gender" id="gender" className="form-select shadow-sm" aria-label="Default select example" defaultValue={user.gender}>
                                         <option value="" disabled>Select gender</option>
@@ -74,7 +74,7 @@ function Profile({ user }) {
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <div className="col-6">
+                                <div className="col-12 col-sm-6">
                                     <label htmlFor="birthdate" className="col-form-label">Birthdate</label>
                                     <input type="date" name="birthdate" className="form-control shadow-sm" id="birthdate" defaultValue={user.birthdate} />
                                 </div>

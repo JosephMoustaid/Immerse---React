@@ -80,7 +80,7 @@ const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses
       <div className='w-90'>
         <h1>This is the teacher dashboard </h1>
         <div className='px-2'>
-          <div className="container">
+          <div className="">
             <div className="row">
               <div className="col-12">
                 <Overview totalLearners={teacherDashboard.overview.totalLearners} countries={teacherDashboard.overview.countries} emergingEconomies={teacherDashboard.overview.emergingEconomies} />
@@ -89,15 +89,15 @@ const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses
                 <Enrollment  labels={teacherDashboard.enrollment.months} dataPoints={teacherDashboard.enrollment.dataPoints} />
 
               </div>
-              <div className="col-6">
+              <div className="col-12 col-sm-6">
               <CommitmentInsight  complete={teacherDashboard.comitement.complete} audit={teacherDashboard.comitement.audit} uncommitted={ teacherDashboard.comitement.uncommitted} />
 
               </div>
-              <div className="col-6">
+              <div className="col-12 col-sm-6">
               <ContinentInsights  data={teacherDashboard.continent} />
 
               </div>
-              <div className="col-6">
+              <div className="col-12 col-sm-6">
               <CountryInsights  data={teacherDashboard.country} />
 
               </div>
