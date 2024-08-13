@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Table = ({ columns, data, onDelete }) => {
+const Table = ({ columns, data, onDelete, onBan }) => {
   const path = useLocation();
   const page = path.pathname.split('/').filter(Boolean).pop();
 
@@ -9,9 +9,11 @@ const Table = ({ columns, data, onDelete }) => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [searchQuery, setSearchQuery] = useState(''); // State for search query
 
-  // State for managing the modal
-  const [showModal, setShowModal] = useState(false);
+  // State for managing the modals
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showBanModal, setShowBanModal] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
+  const [banIndex, setBanIndex] = useState(null);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -43,23 +45,43 @@ const Table = ({ columns, data, onDelete }) => {
   };
 
   const handleDelete = (index) => {
-    setShowModal(true);
+    setShowDeleteModal(true);
     setDeleteIndex(index);
+  };
+
+  const handleBan = (index) => {
+    setShowBanModal(true);
+    setBanIndex(index);
   };
 
   const confirmDelete = () => {
     onDelete(deleteIndex);
-    setShowModal(false);
+    setShowDeleteModal(false);
   };
 
   const cancelDelete = () => {
-    setShowModal(false);
+    setShowDeleteModal(false);
     setDeleteIndex(null);
+  };
+
+  const confirmBan = () => {
+    onBan(banIndex);
+    setShowBanModal(false);
+  };
+
+  const cancelBan = () => {
+    setShowBanModal(false);
+    setBanIndex(null);
   };
 
   const handleDeleteClick = (e, index) => {
     e.preventDefault(); // Prevent page refresh
     handleDelete(index);
+  };
+
+  const handleBanClick = (e, index) => {
+    e.preventDefault(); // Prevent page refresh
+    handleBan(index);
   };
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
@@ -85,6 +107,7 @@ const Table = ({ columns, data, onDelete }) => {
             ))}
             <th>Delete</th>
             {(page !== "assets") && <th>Edit</th>}
+            {(page === "students") && <th>Ban</th>}
           </tr>
         </thead>
         <tbody className="rounded">
@@ -112,6 +135,17 @@ const Table = ({ columns, data, onDelete }) => {
                   </a>
                 </td>
               }
+              {(page === "students") && 
+                <td>
+                  <a 
+                    href="#"
+                    className="bg-danger text-light rounded border"
+                    onClick={(e) => handleBanClick(e, startIndex + rowIndex)}
+                  >
+                    <i className="bi bi-slash-circle-fill"></i>
+                  </a>
+                </td>
+              }
             </tr>
           ))}
         </tbody>
@@ -136,7 +170,6 @@ const Table = ({ columns, data, onDelete }) => {
           </button>
           {[...Array(totalPages)].map((_, index) => (
             <button
-            
               key={index}
               className={currentPage === index + 1 ? 'active custom-button2' : 'custom-button2'}
               onClick={() => handlePageChange(index + 1)}
@@ -156,7 +189,7 @@ const Table = ({ columns, data, onDelete }) => {
 
       {/* Modal for confirming the delete */}
       <div
-        className={`modal fade ${showModal ? 'show d-block' : 'd-none'}`}
+        className={`modal fade ${showDeleteModal ? 'show d-block' : 'd-none'}`}
         tabIndex="-1"
         role="dialog"
         style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
@@ -183,6 +216,41 @@ const Table = ({ columns, data, onDelete }) => {
                 onClick={confirmDelete}
               >
                 Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal for confirming the ban */}
+      <div
+        className={`modal fade ${showBanModal ? 'show d-block' : 'd-none'}`}
+        tabIndex="-1"
+        role="dialog"
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+      >
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title text-dark">Confirm Ban</h5>
+            </div>
+            <div className="modal-body text-dark">
+              <p>Are you sure you want to ban this student? They won't be allowed to use the app for 30 days.</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={cancelBan}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={confirmBan}
+              >
+                Ban
               </button>
             </div>
           </div>
