@@ -4,17 +4,33 @@ import { useLocation } from 'react-router-dom';
 const Table = ({ columns, data, onDelete }) => {
   const path = useLocation();
   const page = path.pathname.split('/').filter(Boolean).pop();
-    
+
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [searchQuery, setSearchQuery] = useState(''); // State for search query
 
   // State for managing the modal
   const [showModal, setShowModal] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1); // Reset to first page when searching
+  };
+
+  // Filtered data based on the search query
+  const filteredData = data.filter((row) =>
+    columns.some((col) =>
+      row[col.accessor]
+        ?.toString()
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
+    )
+  );
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const paginatedData = data.slice(startIndex, endIndex);
+  const paginatedData = filteredData.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
@@ -46,10 +62,21 @@ const Table = ({ columns, data, onDelete }) => {
     handleDelete(index);
   };
 
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   return (
     <div className="asset-table-container">
+      {/* Search bar */}
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="form-control mb-3"
+        />
+      </div>
+
       <table className="asset-table rounded">
         <thead>
           <tr>
@@ -101,7 +128,7 @@ const Table = ({ columns, data, onDelete }) => {
           <option value={50}>50</option>
         </select>
         <div className="page-controls text-secondary">
-          <button
+          <button className='custom-button2'
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
           >
@@ -109,14 +136,16 @@ const Table = ({ columns, data, onDelete }) => {
           </button>
           {[...Array(totalPages)].map((_, index) => (
             <button
+            
               key={index}
-              className={currentPage === index + 1 ? 'active' : ''}
+              className={currentPage === index + 1 ? 'active custom-button2' : 'custom-button2'}
               onClick={() => handlePageChange(index + 1)}
             >
               {index + 1}
             </button>
           ))}
           <button
+            className='custom-button2'
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange(currentPage + 1)}
           >
@@ -125,7 +154,7 @@ const Table = ({ columns, data, onDelete }) => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal for confirming the delete */}
       <div
         className={`modal fade ${showModal ? 'show d-block' : 'd-none'}`}
         tabIndex="-1"

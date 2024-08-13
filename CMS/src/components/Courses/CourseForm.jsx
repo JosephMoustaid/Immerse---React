@@ -21,7 +21,7 @@ const CourseForm = ({ course, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="container mt-4">
+    <form onSubmit={handleSubmit} className="container mt-4" style={{maxWidth:"800px"}}>
       <h2 className='mb-4'>Edit Course</h2>
       <div className="mb-3">
         <label className="form-label">Title</label>
@@ -54,7 +54,7 @@ const CourseForm = ({ course, onSubmit }) => {
           <option value="private">Private</option>
         </select>
       </div>
-      <button type="submit" className="btn btn-primary w-100">
+      <button type="submit" className="custom-button2 w-100">
          Update
       </button>
     </form>

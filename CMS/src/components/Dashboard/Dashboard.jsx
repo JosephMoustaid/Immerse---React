@@ -23,10 +23,10 @@ function Dashboard() {
   ];
 
   const studentData = [
-    { name: 'Math', students: 200 },
-    { name: 'Biology', students: 180 },
-    { name: 'Mechanics', students: 220 },
-    { name: 'Software', students: 150 },
+    { category: 'Math', students: 200 },
+    { category: 'Biology', students: 180 },
+    { category: 'Mechanics', students: 220 },
+    { category: 'Software', students: 150 },
   ];
 
   // Data for testing the dashboard components  

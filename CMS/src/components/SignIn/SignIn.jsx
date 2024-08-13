@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import logo from "../../../public/logo.png";
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +13,7 @@ const SignIn = () => {
   const correctEmail = 'immerseAdmin@gmail.com';
   const correctPassword = 'admin@2024';
 
-  // Handle form submission
+  // Logic of the  form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -43,11 +43,12 @@ const SignIn = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="d-flex justify-content-center align-items-center vh-90">
       <div className="card shadow-sm" style={{ maxWidth: '400px', width: '100%' }}>
         <div className="card-body">
           <h2 className="card-title text-center mb-4">
-            Admin Sign In</h2>
+            <img src={logo} alt="logo" width={50}/> <br />
+            Admin Sign In </h2>
           {error && <div className="alert alert-danger">{error}</div>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -72,7 +73,7 @@ const SignIn = () => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary w-100" disabled={attempts >= 3}>Sign In</button>
+            <button type="submit" className="btn custom-button2 w-100" disabled={attempts >= 3}>Sign In</button>
           </form>
         </div>
       </div>

@@ -31,7 +31,7 @@ const StudentForm = ({ student, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="container mt-4">
+    <form onSubmit={handleSubmit} className="container mt-4" style={{maxWidth:"800px"}}>
       <h2 className='mb-4'>Edit Student</h2>
       <div className="row mb-3">
         <div className="col-md-6">
@@ -90,7 +90,7 @@ const StudentForm = ({ student, onSubmit }) => {
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary w-100">
+      <button type="submit" className="custom-button2 w-100">
         {student ? 'Update' : 'Save'}
       </button>
     </form>

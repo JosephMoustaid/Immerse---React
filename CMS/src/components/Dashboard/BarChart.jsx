@@ -4,9 +4,9 @@ import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid
 
 const BarChart = ({ data }) => {
   return (
-    <RechartsBarChart width={600} height={300} data={data} className='bg-light rounded shadow'>
+    <RechartsBarChart width={500} height={300} data={data} className='bg-light rounded shadow'>
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="category" />
       <YAxis />
       <Tooltip />
       <Bar dataKey="students" fill="#8884d8" />
