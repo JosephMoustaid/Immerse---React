@@ -1,4 +1,6 @@
 .course-card{
+    max-width: 300px;
+    margin: auto;
     padding: 10px;
     img{
         width: 100%;
@@ -7,7 +9,7 @@
     }
     .teacher-name, .course-name {
         font-size: .8em;
-        color: $colour-transparent-black;
+        color: $colour-header-text;
     }
     
     .course-name{

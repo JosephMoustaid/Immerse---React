@@ -5,10 +5,29 @@ body{
     //font-family: 'Montserrat', sans-serif;
     font-family: 'Roboto', sans-serif;
     letter-spacing: .5px;
-    color: $colour-black;
+    color: $colour-black !important;
     background-color: $colour-white !important;
     max-width:2000px;
     margin: auto;
+    .bg-dynamic{
+        background-color: $colour-white !important;
+    }
+
+    
+    .alert-success {
+        background-color: $colour-success !important;
+        color: $colour-alert-green-text;
+    }
+    .alert-danger {
+        background-color: $colour-danger !important;
+        color: $colour-alert-red-text;
+
+    }
+    .alert-dismissible {
+        background-color: $colour-dismissible !important;
+        color: $colour-alert-dismissible-text;
+
+    }
     .underline{
         text-decoration: underline !important;
     }
@@ -28,5 +47,22 @@ body{
     .text-blue{
         color: $colour-blue;
     }
-    
+    .shadow{
+        box-shadow: 0 .125rem .25rem $colour-box-shadow-1, 0 .25rem .5rem $colour-box-shadow-2 !important;
+    }
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem $colour-box-shadow-1 !important;
+    }
+      
+    .card {
+        .card-body , .card-header{
+            color: $colour-black;
+        }
+    }
+    .progress-bar{
+        background-color: $colour-blue !important;
+    }
+    .text-black{
+        color: $colour-black !important;
+    }
 }

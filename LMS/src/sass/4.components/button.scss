@@ -44,7 +44,7 @@
     }
 }
 .custom-button3:disabled {
-    background-color: #11500d;
+    background-color: $colour-dark-green;
     &:hover{
         cursor: not-allowed;
         transform: scale(1);
@@ -54,7 +54,7 @@
 
 .loadMoreButton{
     padding: 8px 5px ;
-    max-width: 120px;
+    max-width: 120px !important;
     color: $colour-white !important;
     text-align: center;
     background-color: $colour-blue !important;
@@ -76,7 +76,7 @@
 }
 .borderButton{
     padding: 8px 5px;
-    max-width: 120px;
+    max-width: 120px !important;
     color: $colour-blue !important;
     text-align: center;
     border: 1px solid $colour-blue !important;

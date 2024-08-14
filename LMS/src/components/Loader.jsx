@@ -8,7 +8,7 @@ const Loader = () => (
       alignItems: 'center',
       width: '100vw',
       height: '100vh',
-      backgroundColor: 'white',
+      backgroundColor: 'inherit',
       position: 'fixed',
       top: 0,
       left: 0,

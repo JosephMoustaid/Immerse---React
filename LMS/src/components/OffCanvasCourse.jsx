@@ -27,7 +27,7 @@ const OffCanvasCourse = ({ show, onClose, course, id }) => {
         </div>
 
 
-        <button type="button" className="btn custom-button2 d-flex justify-content-center mt-3 px-5">Launch Experience</button>
+        <button type="button" className="custom-button2 d-flex justify-content-center mt-3 px-5">Launch Experience</button>
       </div>
     </div>
   );

@@ -62,80 +62,79 @@ function Courses({ courses }) {
             <p className='underline mt-2 mb-3'>The teachers will have the courses they created here. If they want to browse public courses, they simply search.</p>
             <div className="table-responsive">
             <div className="table-responsive">
-    <table className="table table-bordered">
-        <thead className="thead-light">
-        <tr>
-            <th scope="col" className="d-none d-sm-table-cell">Preview</th>
-            <th scope="col">Course</th>
-            <th scope="col">Field</th>
-            <th scope="col">Privacy</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {courses.length > 0 ? (
-            courses.map((course) => (
-            <tr key={course.id} className="course rounded">
-                <td className="text-center d-none d-sm-table-cell">
-                    <img
-                        className="rounded course-list-previewImg img-fluid"
-                        src={course.previewImg}
-                        alt={`Preview of ${course.name}`}
-                        style={{ maxWidth: '100px', height: 'auto' }}
-                    />
-                </td>
-                <td>
-                    <div className="d-flex flex-column">
-                        <strong>Course</strong> 
-                        <span>{course.name}</span>
-                    </div>
-                </td>
-                <td>
-                    <div className="d-flex flex-column">
-                        <strong>Field</strong> 
-                        <span>{course.type}</span>
-                    </div>
-                </td>
-                <td>
-                    <div className="d-flex flex-column">
-                        <strong>Privacy</strong> 
-                        <span>{course.category}</span>
-                    </div>
-                </td>
-                <td>
-                    <div className="d-flex flex-column">
-                        <strong>Actions</strong> 
-                        <div className="d-flex justify-content-center justify-content-md-start">
-                            <a
-                            href={`view-course?c=${course.id}`}
-                            onClick={() => handleShow(course)}
-                            role="button"
-                            className="btn btn-sm editCourseButton px-2 me-2"
-                            >
-                            View
-                            </a>
-                            <a
-                            href={`edit-course?c=${course.id}`}
-                            role="button"
-                            className="btn btn-sm borderButton px-2"
-                            >
-                            Edit
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            ))
-        ) : (
-            <tr>
-            <td colSpan="5" className="text-center">
-                No courses available.
-            </td>
-            </tr>
-        )}
-        </tbody>
-    </table>
-</div>
+                <table className="table table-bordered ">
+                    <thead className="thead-light rounded">
+                    <tr>
+                        <th scope="col" className="d-none d-sm-table-cell">Preview</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Field</th>
+                        <th scope="col">Privacy</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody className='bg-dynamic' >
+                    {courses.length > 0 ? (
+                        courses.map((course) => (
+                        <tr key={course.id} className="course rounded"  >
+                            <td className="text-center d-none d-sm-table-cell"  >
+                                <img
+                                    className="rounded course-list-previewImg img-fluid"
+                                    src={course.previewImg}
+                                    alt={`Preview of ${course.name}`}
+                                    style={{ maxWidth: '100px', height: 'auto' }}
+                                />
+                            </td>
+                            <td>
+                                <div className="d-flex flex-column">
+                                    <strong>Course</strong> 
+                                    <span>{course.name}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div className="d-flex flex-column">
+                                    <strong>Field</strong> 
+                                    <span>{course.type}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div className="d-flex flex-column">
+                                    <strong>Privacy</strong> 
+                                    <span>{course.category}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div className="d-flex flex-column">
+                                    <strong>Actions</strong> 
+                                    <div className="d-flex justify-content-center justify-content-md-start">
+                                        <a
+                                        href={`view-course?c=${course.id}`}
+                                        role="button"
+                                        className="btn btn-sm editCourseButton px-2 me-2"
+                                        >
+                                        View
+                                        </a>
+                                        <a
+                                        href={`edit-course?c=${course.id}`}
+                                        role="button"
+                                        className="btn btn-sm borderButton px-2"
+                                        >
+                                        Edit
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        ))
+                    ) : (
+                        <tr>
+                        <td colSpan="5" className="text-center">
+                            No courses available.
+                        </td>
+                        </tr>
+                    )}
+                    </tbody>
+                </table>
+            </div>
 
 
             </div>
@@ -151,7 +150,7 @@ function Courses({ courses }) {
                             courses.filter(course => course.category === "software")
                                 .slice(0, visibleSoftwareCourses)
                                 .map((course, index) => (
-                                    <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
+                                    <div className="col-12 col-sm-6 col-lg-3 mb-2" key={index}>
                                         <a onClick={() => handleShow(course)} href="#software"><CourseCard {...course} /></a>
                                     </div>
                                 ))
@@ -167,7 +166,7 @@ function Courses({ courses }) {
                                 </a>
                             </div>
                         )}
-                        <div className="borderButton ms-1">
+                        <div className="borderButton ms-2">
                             <a href="">See All</a>
                             <i className="bi bi-arrow-right ms-2"></i>
                         </div> 
@@ -186,7 +185,7 @@ function Courses({ courses }) {
                         )}
                         <div className="col-12"></div>
                         {courses.filter(course => course.category === "mechanics").length > visibleMechanicsCourses && (
-                            <div className="loadMoreButton ms-md-3">
+                            <div className="loadMoreButton ms-md-3 ms-2">
                                 <a onClick={() => handleLoadMore("mechanics")}>
                                     {expandedMechanics ? 'Display Less' : `Display ${Math.min(courses.filter(course => course.category === "mechanics").length - visibleMechanicsCourses, 8)} More`}
                                 </a>

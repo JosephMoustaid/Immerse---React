@@ -1,5 +1,4 @@
-// Define a flag for the current theme
-$theme: light; // Set this to either 'light' or 'dark'
+$theme: light; // Either 'light' or 'dark'
 
 // Default to light theme
 @if $theme == light {
@@ -14,6 +13,22 @@ $theme: light; // Set this to either 'light' or 'dark'
     $slight-shadow-grey:rgba(223, 223, 223, 0.364);
     $context-background-colour:rgb(31, 31, 31);
     $context-background-colour-on-hover:rgb(88, 88, 88);
+
+    
+    $context-background-colour:rgb(31, 31, 31);
+    $context-background-colour-on-hover:rgb(88, 88, 88);
+    $colour-grey-text:#343a40;
+
+    $colour-box-shadow-1 : rgba(0, 0, 0, .075);
+    $colour-box-shadow-2 : rgba(0, 0, 0, .05);
+
+    $colour-header-text:rgba(45, 45, 45, 0.726);
+    $colour-input-text:#000000;
+
+    
+    $colour-alert-red-text:$colour-red;
+    $colour-alert-green-text:$colour-green;
+    $colour-alert-dismissible-text:$colour-black;
         
 } @else if $theme == dark {
     $colour-white: #262424;
@@ -28,4 +43,19 @@ $theme: light; // Set this to either 'light' or 'dark'
     $context-background-colour:rgb(199, 199, 199);
     $context-background-colour-on-hover:rgb(147, 147, 147);
     $colour-transparent-black2 : rgba(255, 255, 255, 0.616);
+        
+    $context-background-colour:rgb(200, 200, 200);
+    $context-background-colour-on-hover:rgb(179, 179, 179);
+    $colour-grey-text:#a3b6c9;
+
+    $colour-box-shadow-1 : rgba(255, 255, 255, 0.075);
+    $colour-box-shadow-2 : rgba(255, 255, 255, 0.05);
+
+    $colour-header-text:rgba(206, 206, 206, 0.726);
+    $colour-input-text:#353535;
+
+    
+    $colour-alert-red-text:$colour-black;
+    $colour-alert-green-text:$colour-black;
+    $colour-alert-dismissible-text:$colour-black;
 }

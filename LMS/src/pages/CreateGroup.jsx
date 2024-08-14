@@ -74,7 +74,7 @@ function CreateGroup() {
     <div className="carousel create-group-carousel" id='create-group-carousel'>
     
       {step === 0 && (
-        <div className="carousel-item active d-flex justify-content-center">
+        <div className="carousel-item active d-flex  mb-5 justify-content-center">
           <form className="p-4" onSubmit={handleNext}>
             <div className="form-group">
               <label htmlFor="groupName">Group Name</label>
@@ -93,14 +93,14 @@ function CreateGroup() {
         </div>
       )}
       {step === 1 && (
-        <div className="carousel-item active d-flex justify-content-center">
+        <div className="carousel-item active d-flex  mb-5 justify-content-center">
           <form className="p-4" onSubmit={handleNext}>
             <div className="profile-image-container">
               <h4>Profile picture</h4>
               <img src={defaultGroupProfile} id="profileImage" className="img-thumbnail shadow rounded-circle" alt="Profile Image" style={{ width: "100px", height: "100px" }} />
-              <div className="edit-icon scale-on-hover" role="button">
+              <div className="edit-icon small-scale-on-hover" role="button">
                 <label htmlFor="profileImageInput" role='button'>
-                  <i className="bi bi-camera-fill fs-6 p-1"></i>
+                  <i className="bi bi-camera-fill fs-6"></i>
                 </label>
                 <input type="file" id="profileImageInput" accept="image/jpeg, image/png, image/gif" onChange={previewImage} style={{ display: 'none' }} />
               </div>
@@ -111,7 +111,7 @@ function CreateGroup() {
         </div>
       )}
       {step === 2 && (
-        <div className="carousel-item active d-flex justify-content-center">
+        <div className="carousel-item active d-flex  mb-5 justify-content-center">
           <form className="p-4" onSubmit={handleNext}>
             <div className="form-group">
               <label htmlFor="description">Description</label>
@@ -130,7 +130,7 @@ function CreateGroup() {
         </div>
       )}
       {step === 3 && (
-        <div className="carousel-item active d-flex justify-content-center">
+        <div className="carousel-item active d-flex  mb-5 justify-content-center">
           <form className="p-4" onSubmit={handleNext}>
             <div className="form-group">
               <label htmlFor="users">Add Users</label>
@@ -160,7 +160,7 @@ function CreateGroup() {
         </div>
       )}
       {step === 4 && (
-        <div className="carousel-item active d-flex justify-content-center">
+        <div className="carousel-item active d-flex justify-content-center  mb-5">
           <form className="p-4" onSubmit={handleSubmit}>
             <h5>Review and Confirm</h5>
             <img src={defaultGroupProfile} id="profileImage" className="img-thumbnail shadow rounded-circle m-auto" alt="Profile Image" style={{ width: "100px", height: "100px" }} />

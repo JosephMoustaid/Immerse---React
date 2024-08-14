@@ -20,7 +20,7 @@ function ViewCourse({ course }) {
   );
 
   return (
-    <div className="view-course-container mt-5 mb-5 m-auto" style={{ maxWidth: '800px' }}>
+    <div className="view-course-container mt-0 mb-5 m-auto" style={{ maxWidth: '800px' }}>
       <div className="card shadow-sm">
         <div className="card-header">
           <h3 className="mb-0">{course.name}</h3>

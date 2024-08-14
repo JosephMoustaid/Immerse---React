@@ -1,6 +1,6 @@
 .make-course-up-body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f8f9fa;
+    background-color: $colour-white;
 
 
     .course-card {
@@ -43,7 +43,7 @@
         font-weight: 600;
         margin-bottom: 1.5rem;
         text-align: center;
-        color: #343a40;
+        color: $colour-grey-text;
     }
 
 }

@@ -1,14 +1,17 @@
 .course-list{
     font-size: .9em;
+    .table{
+        background-color: $colour-white !important;
+    }
     .course-list-columns{
         color: $colour-black;
         text-transform: uppercase;
     }
     .course-list-columns , .course{
-        height: 90px;
+        // height: 90px;
         margin-top: 15px;
         padding-left: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* X-offset Y-offset Blur-radius Color */
+        box-shadow: 0 4px 6px $colour-box-shadow-1 
     }
     .couse-head{
         height: 40px !important;

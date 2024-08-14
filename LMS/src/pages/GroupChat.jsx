@@ -15,7 +15,8 @@ function GroupChat({ group } , {user}) {
         <div   className="group-chat mt-2 w-100">
             <div   className="group-chat-head rounded">
                 <div   className="d-flex flex-row justify-content-between">
-                    <div   className="d-flex flex-row">
+                    <div   className="d-flex flex-row justify-content-start">
+                        <a href="javascript:history.back()" className='me-2'><i class="bi bi-arrow-left"></i></a>
                         <img   className="group-profile me-2" src={group.profile || defaultGroupProfile} alt="group profile" />
                         <div   className="d-flex flex-column ml-2">
                             <div   className="group-name">{group.name}</div>

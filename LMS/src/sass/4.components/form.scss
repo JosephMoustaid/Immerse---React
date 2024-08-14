@@ -20,7 +20,7 @@
 }
 
 .text-muted {
-    color: #6c757d !important;
+    color: $colour-transparent-grey !important;
 }
 
 .container {
@@ -33,14 +33,14 @@
         width: 100%;
         max-width: 400px;
         padding: 2rem;
-        background-color: #ffffff;
+        background-color: $colour-white;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px $colour-box-shadow-black;
 
         .confirm-btn {
             background-color: $colour-purple;
             border: none;
-            color: #fff;
+            color: $colour-white;
             padding: 0.75rem;
             border-radius: 5px;
             transition: background-color 0.3s ease;

@@ -71,7 +71,7 @@ function App(props) {
   const location = useLocation();
   const currentLink = location.pathname.split('/')[1] || 'dashboard'; // Default to 'dashboard' if path is '/'
   const noNavFooter = location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/forgot-password'  || location.pathname === '/reset-password'  || location.pathname === '/make-course'  ;// || location.pathname === '/make-quiz';
-  const noSearchBox = location.pathname === '/view-course' || location.pathname === '/edit-course' ;
+  const noSearchBox = location.pathname === '/view-course' || location.pathname === '/edit-course'  ;
 
   useEffect(() => {
     if (noNavFooter) {
@@ -82,16 +82,6 @@ function App(props) {
     }
   }, [noNavFooter]);
 
-
-  // removing search box in view-course , and edit-course
-  useEffect(() => {
-    if (noSearchBox) {
-      let searchBox = document.querySelector('.search-box');
-      searchBox.style.display ="none";
-    }
-  }, [noSearchBox]);
-
-  
 
   // Return only Outlet if noNavFooter is true
   if (noNavFooter) {
@@ -107,13 +97,14 @@ function App(props) {
         :
         <>
           <ContextMenu isVisible={contextMenu.isVisible} position={contextMenu.position} onClose={handleCloseMenu}/>
-          <div className="container-fluid" data-bs-theme="light" onContextMenu={handleContextMenu}>
-            <div className="row">
+          <div className="container-fluid bg-dynamic"  onContextMenu={handleContextMenu}>
+            <div className="row bg-dynamic">
               <Nav currentLink={currentLink} />
               
               <div className="content with-nav-footer">
                 <div className="d-flex flex-row mb-3 justify-content-between">
                   <a href="" className='fs-3 ham-button' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar"> <i class="bi bi-list"></i></a>
+                  {!noSearchBox ? 
                   <div className="search-box d-flex flex-row mt-md-3">
                     <form action="./search" method="post">
                       <input type="text"  placeholder="Search" ref={inputRef} id="search" />
@@ -129,6 +120,8 @@ function App(props) {
                       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                     </svg>
                   </div>
+                  : <span></span> }
+                  
                   <div className="p-2 pt-0 d-flex justify-content-between align-items-center">
                     <a
                       href="notifications"

@@ -105,14 +105,18 @@
         }
     }
 }
-
+.container-fluid{
+    background-color: $colour-white !important;
+}
 @media screen and (max-width: 768px) {
     .content {
         width: 100%;
         margin-left: 0;
     }
 }
-
+.ham-button , .btn-close , .ham-button:hover , .btn-close:hover{
+    color: $colour-black !important;
+}
 @media screen and (min-width: 769px){
     .ham-button{
         display: none;

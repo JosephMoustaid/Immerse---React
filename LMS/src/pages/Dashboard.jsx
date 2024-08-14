@@ -76,8 +76,8 @@ const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses
   }, []);
 
   return (
-    <div className="dashboard px-md-5">
-      <div className='w-90'>
+    <div className="dashboard px-md-5 ">
+      <div className='w-90 '>
         <h1>This is the teacher dashboard </h1>
         <div className='px-2'>
           <div className="">
@@ -109,7 +109,7 @@ const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses
           <h4 className="mt-2" >Enrolled Courses</h4>
           <div className="row">
             {enrolledCourses.slice(0, visibleEnrolledCourses).map((course, index) => (
-              <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
+              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2 px-3" key={index}>
                 <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
               </div>
             ))}
@@ -127,7 +127,7 @@ const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses
           <h4 className="mt-5" >Bookmarks</h4>
           <div className="row">
             {bookmarksCourses.slice(0, visibleBookmarksCourses).map((course, index) => (
-              <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
+              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2" key={index}>
                 <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
               </div>
             ))}
@@ -145,7 +145,7 @@ const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses
           <h4 className="mt-2">Top Picks for You</h4>
           <div className="row">
             {recommendedCourses.slice(0, visibleRecommendedCourses).map((course, index) => (
-              <div className="col-12 col-sm-6 col-md-3 mb-2" key={index}>
+              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2" key={index}>
                 <a onClick={() => handleShow(course)} href="#"><CourseCard {...course} /></a>
               </div>
             ))}
@@ -164,7 +164,7 @@ const Dashboard = ({teacherDashboard={} , enrolledCourses = [], bookmarksCourses
           <div className="row">
             {assignments.length > 0 ? (
               assignments.map((assignment, index) => (
-                <div className="col-12 col-sm-6 col-md-6 mb-2" key={index}>
+                <div className="col-12 col-sm-6 mb-2" key={index}>
                   <AssignementCard {...assignment} />
                 </div>
               ))
