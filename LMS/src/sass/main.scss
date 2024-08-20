@@ -7,10 +7,14 @@ $primary:white;
 
 // utils
 @import "../sass/2.utils/variables.scss";
+
+// theme 
+@import "../sass/6.themes/themes.scss";
+
+// utils
 @import "../sass/2.utils/scale-on-hover.scss";
 @import "../sass/2.utils/load-more.scss";
 @import "../sass/2.utils/correctAnswer.scss";
-// theme 
 @import "../sass/6.themes/themes.scss";
 // base
 @import "../sass/1.base/base.scss";

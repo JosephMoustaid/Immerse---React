@@ -191,7 +191,6 @@ const course3 = {
 };
 
  //rating : {percentage : 5 , number :  12354},
-
 const course4 = {
   id: 104,
   description :"This is a course to teach Basic functionnality of Mechanical engines in general , we will go over the basics , some componewnts ...",
@@ -404,7 +403,6 @@ const AppWrapper = (props) => {
   const location = useLocation();
   return <App currentLink={location.pathname} {...props} user={student2} />;
 };
-
 
 // Data for dashboard tests 
 const comitementData = {
